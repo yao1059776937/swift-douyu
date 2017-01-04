@@ -1,0 +1,897 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		249DB423A9B0E0F2D33849DC /* Pods_DouYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B680077163788C423E4C984F /* Pods_DouYu.framework */; };
+		CB9877981E1B7D84009A6F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877971E1B7D84009A6F2D /* AppDelegate.swift */; };
+		CB98779D1E1B7D84009A6F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98779B1E1B7D84009A6F2D /* Main.storyboard */; };
+		CB98779F1E1B7D84009A6F2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB98779E1E1B7D84009A6F2D /* Assets.xcassets */; };
+		CB9877A21E1B7D84009A6F2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB9877A01E1B7D84009A6F2D /* LaunchScreen.storyboard */; };
+		CB9877AD1E1B7D84009A6F2D /* DouYuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877AC1E1B7D84009A6F2D /* DouYuTests.swift */; };
+		CB9877B81E1B7D84009A6F2D /* DouYuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877B71E1B7D84009A6F2D /* DouYuUITests.swift */; };
+		CB9877E31E1B8182009A6F2D /* YYLBaseBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877E21E1B8182009A6F2D /* YYLBaseBarController.swift */; };
+		CB9877E81E1B81FE009A6F2D /* YYLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877E71E1B81FE009A6F2D /* YYLViewController.swift */; };
+		CB9877EA1E1B8264009A6F2D /* YYLMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877E91E1B8264009A6F2D /* YYLMineViewController.swift */; };
+		CB9877EC1E1B8281009A6F2D /* YYLAttentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877EB1E1B8281009A6F2D /* YYLAttentionViewController.swift */; };
+		CB9877EE1E1B8293009A6F2D /* YYLVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877ED1E1B8293009A6F2D /* YYLVideoViewController.swift */; };
+		CB9877F01E1B82A7009A6F2D /* YYLLivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877EF1E1B82A7009A6F2D /* YYLLivingViewController.swift */; };
+		CB9877F21E1B82B7009A6F2D /* YYLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */; };
+		CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */; };
+		CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CB9877A91E1B7D84009A6F2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB98778C1E1B7D84009A6F2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9877931E1B7D84009A6F2D;
+			remoteInfo = DouYu;
+		};
+		CB9877B41E1B7D84009A6F2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CB98778C1E1B7D84009A6F2D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB9877931E1B7D84009A6F2D;
+			remoteInfo = DouYu;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5458C0A29139A9A796B3483B /* Pods-DouYu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYu.release.xcconfig"; path = "Pods/Target Support Files/Pods-DouYu/Pods-DouYu.release.xcconfig"; sourceTree = "<group>"; };
+		ABCF0488FA6FE6D1E5BE4211 /* Pods-DouYu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DouYu.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DouYu/Pods-DouYu.debug.xcconfig"; sourceTree = "<group>"; };
+		B680077163788C423E4C984F /* Pods_DouYu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9877941E1B7D84009A6F2D /* DouYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9877971E1B7D84009A6F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CB98779C1E1B7D84009A6F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CB98779E1E1B7D84009A6F2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CB9877A11E1B7D84009A6F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CB9877A31E1B7D84009A6F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9877A81E1B7D84009A6F2D /* DouYuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouYuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9877AC1E1B7D84009A6F2D /* DouYuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYuTests.swift; sourceTree = "<group>"; };
+		CB9877AE1E1B7D84009A6F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9877B31E1B7D84009A6F2D /* DouYuUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DouYuUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB9877B71E1B7D84009A6F2D /* DouYuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DouYuUITests.swift; sourceTree = "<group>"; };
+		CB9877B91E1B7D84009A6F2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CB9877DF1E1B7FCC009A6F2D /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		CB9877E21E1B8182009A6F2D /* YYLBaseBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLBaseBarController.swift; sourceTree = "<group>"; };
+		CB9877E71E1B81FE009A6F2D /* YYLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLViewController.swift; sourceTree = "<group>"; };
+		CB9877E91E1B8264009A6F2D /* YYLMineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLMineViewController.swift; sourceTree = "<group>"; };
+		CB9877EB1E1B8281009A6F2D /* YYLAttentionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLAttentionViewController.swift; sourceTree = "<group>"; };
+		CB9877ED1E1B8293009A6F2D /* YYLVideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLVideoViewController.swift; sourceTree = "<group>"; };
+		CB9877EF1E1B82A7009A6F2D /* YYLLivingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingViewController.swift; sourceTree = "<group>"; };
+		CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeViewController.swift; sourceTree = "<group>"; };
+		CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLNavigationViewController.swift; sourceTree = "<group>"; };
+		CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DouYuTV.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CB9877911E1B7D84009A6F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				249DB423A9B0E0F2D33849DC /* Pods_DouYu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877A51E1B7D84009A6F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877B01E1B7D84009A6F2D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		03BE33AB828E190C0CEEF4E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ABCF0488FA6FE6D1E5BE4211 /* Pods-DouYu.debug.xcconfig */,
+				5458C0A29139A9A796B3483B /* Pods-DouYu.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		55F4F7E8AD88553C2B99040A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B680077163788C423E4C984F /* Pods_DouYu.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB98778B1E1B7D84009A6F2D = {
+			isa = PBXGroup;
+			children = (
+				CB9877961E1B7D84009A6F2D /* DouYu */,
+				CB9877AB1E1B7D84009A6F2D /* DouYuTests */,
+				CB9877B61E1B7D84009A6F2D /* DouYuUITests */,
+				CB9877951E1B7D84009A6F2D /* Products */,
+				03BE33AB828E190C0CEEF4E7 /* Pods */,
+				55F4F7E8AD88553C2B99040A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		CB9877951E1B7D84009A6F2D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877941E1B7D84009A6F2D /* DouYu.app */,
+				CB9877A81E1B7D84009A6F2D /* DouYuTests.xctest */,
+				CB9877B31E1B7D84009A6F2D /* DouYuUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CB9877961E1B7D84009A6F2D /* DouYu */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */,
+				CB9877971E1B7D84009A6F2D /* AppDelegate.swift */,
+				CB98779B1E1B7D84009A6F2D /* Main.storyboard */,
+				CB98779E1E1B7D84009A6F2D /* Assets.xcassets */,
+				CB9877A01E1B7D84009A6F2D /* LaunchScreen.storyboard */,
+				CB9877A31E1B7D84009A6F2D /* Info.plist */,
+				CB9877E01E1B8136009A6F2D /* Base */,
+				CB9877C51E1B7F2D009A6F2D /* Applation */,
+				CB9877DF1E1B7FCC009A6F2D /* PrefixHeader.pch */,
+			);
+			path = DouYu;
+			sourceTree = "<group>";
+		};
+		CB9877AB1E1B7D84009A6F2D /* DouYuTests */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877AC1E1B7D84009A6F2D /* DouYuTests.swift */,
+				CB9877AE1E1B7D84009A6F2D /* Info.plist */,
+			);
+			path = DouYuTests;
+			sourceTree = "<group>";
+		};
+		CB9877B61E1B7D84009A6F2D /* DouYuUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877B71E1B7D84009A6F2D /* DouYuUITests.swift */,
+				CB9877B91E1B7D84009A6F2D /* Info.plist */,
+			);
+			path = DouYuUITests;
+			sourceTree = "<group>";
+		};
+		CB9877C51E1B7F2D009A6F2D /* Applation */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877D51E1B7F2D009A6F2D /* Mine */,
+				CB9877C61E1B7F2D009A6F2D /* Attention */,
+				CB9877DA1E1B7F2D009A6F2D /* Video */,
+				CB9877D01E1B7F2D009A6F2D /* Living */,
+				CB9877CB1E1B7F2D009A6F2D /* Home */,
+			);
+			path = Applation;
+			sourceTree = "<group>";
+		};
+		CB9877C61E1B7F2D009A6F2D /* Attention */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877C71E1B7F2D009A6F2D /* Controller */,
+				CB9877C81E1B7F2D009A6F2D /* Model */,
+				CB9877C91E1B7F2D009A6F2D /* View */,
+				CB9877CA1E1B7F2D009A6F2D /* ViewModel */,
+			);
+			path = Attention;
+			sourceTree = "<group>";
+		};
+		CB9877C71E1B7F2D009A6F2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877EB1E1B8281009A6F2D /* YYLAttentionViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9877C81E1B7F2D009A6F2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9877C91E1B7F2D009A6F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9877CA1E1B7F2D009A6F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB9877CB1E1B7F2D009A6F2D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877CC1E1B7F2D009A6F2D /* Controller */,
+				CB9877CD1E1B7F2D009A6F2D /* Model */,
+				CB9877CE1E1B7F2D009A6F2D /* View */,
+				CB9877CF1E1B7F2D009A6F2D /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		CB9877CC1E1B7F2D009A6F2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9877CD1E1B7F2D009A6F2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9877CE1E1B7F2D009A6F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9877CF1E1B7F2D009A6F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB9877D01E1B7F2D009A6F2D /* Living */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877D11E1B7F2D009A6F2D /* Controller */,
+				CB9877D21E1B7F2D009A6F2D /* Model */,
+				CB9877D31E1B7F2D009A6F2D /* View */,
+				CB9877D41E1B7F2D009A6F2D /* ViewModel */,
+			);
+			path = Living;
+			sourceTree = "<group>";
+		};
+		CB9877D11E1B7F2D009A6F2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877EF1E1B82A7009A6F2D /* YYLLivingViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9877D21E1B7F2D009A6F2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9877D31E1B7F2D009A6F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9877D41E1B7F2D009A6F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB9877D51E1B7F2D009A6F2D /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877D61E1B7F2D009A6F2D /* Controller */,
+				CB9877D71E1B7F2D009A6F2D /* Model */,
+				CB9877D81E1B7F2D009A6F2D /* View */,
+				CB9877D91E1B7F2D009A6F2D /* ViewModel */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		CB9877D61E1B7F2D009A6F2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877E91E1B8264009A6F2D /* YYLMineViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9877D71E1B7F2D009A6F2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9877D81E1B7F2D009A6F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9877D91E1B7F2D009A6F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB9877DA1E1B7F2D009A6F2D /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877DB1E1B7F2D009A6F2D /* Controller */,
+				CB9877DC1E1B7F2D009A6F2D /* Model */,
+				CB9877DD1E1B7F2D009A6F2D /* View */,
+				CB9877DE1E1B7F2D009A6F2D /* ViewModel */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
+		CB9877DB1E1B7F2D009A6F2D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877ED1E1B8293009A6F2D /* YYLVideoViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9877DC1E1B7F2D009A6F2D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9877DD1E1B7F2D009A6F2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9877DE1E1B7F2D009A6F2D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		CB9877E01E1B8136009A6F2D /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877E41E1B81DB009A6F2D /* BaseController */,
+				CB9877E51E1B81DB009A6F2D /* BaseNavgation */,
+				CB9877E61E1B81DB009A6F2D /* BaseView */,
+				CB9877E11E1B8136009A6F2D /* TabBar */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		CB9877E11E1B8136009A6F2D /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877E21E1B8182009A6F2D /* YYLBaseBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		CB9877E41E1B81DB009A6F2D /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877E71E1B81FE009A6F2D /* YYLViewController.swift */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		CB9877E51E1B81DB009A6F2D /* BaseNavgation */ = {
+			isa = PBXGroup;
+			children = (
+				CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */,
+			);
+			path = BaseNavgation;
+			sourceTree = "<group>";
+		};
+		CB9877E61E1B81DB009A6F2D /* BaseView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BaseView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CB9877931E1B7D84009A6F2D /* DouYu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9877BC1E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYu" */;
+			buildPhases = (
+				F984990D0C1D6FA34AEE6F88 /* [CP] Check Pods Manifest.lock */,
+				CB9877901E1B7D84009A6F2D /* Sources */,
+				CB9877911E1B7D84009A6F2D /* Frameworks */,
+				CB9877921E1B7D84009A6F2D /* Resources */,
+				4426DD7C7EB086AABA15CC65 /* [CP] Embed Pods Frameworks */,
+				44A9E50176B9012373D30423 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DouYu;
+			productName = DouYu;
+			productReference = CB9877941E1B7D84009A6F2D /* DouYu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CB9877A71E1B7D84009A6F2D /* DouYuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9877BF1E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYuTests" */;
+			buildPhases = (
+				CB9877A41E1B7D84009A6F2D /* Sources */,
+				CB9877A51E1B7D84009A6F2D /* Frameworks */,
+				CB9877A61E1B7D84009A6F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB9877AA1E1B7D84009A6F2D /* PBXTargetDependency */,
+			);
+			name = DouYuTests;
+			productName = DouYuTests;
+			productReference = CB9877A81E1B7D84009A6F2D /* DouYuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CB9877B21E1B7D84009A6F2D /* DouYuUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CB9877C21E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYuUITests" */;
+			buildPhases = (
+				CB9877AF1E1B7D84009A6F2D /* Sources */,
+				CB9877B01E1B7D84009A6F2D /* Frameworks */,
+				CB9877B11E1B7D84009A6F2D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CB9877B51E1B7D84009A6F2D /* PBXTargetDependency */,
+			);
+			name = DouYuUITests;
+			productName = DouYuUITests;
+			productReference = CB9877B31E1B7D84009A6F2D /* DouYuUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CB98778C1E1B7D84009A6F2D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = YYL;
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "mac--yyl";
+				TargetAttributes = {
+					CB9877931E1B7D84009A6F2D = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = ZDJS8T69H3;
+						ProvisioningStyle = Automatic;
+					};
+					CB9877A71E1B7D84009A6F2D = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = ZDJS8T69H3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CB9877931E1B7D84009A6F2D;
+					};
+					CB9877B21E1B7D84009A6F2D = {
+						CreatedOnToolsVersion = 8.2;
+						DevelopmentTeam = ZDJS8T69H3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = CB9877931E1B7D84009A6F2D;
+					};
+				};
+			};
+			buildConfigurationList = CB98778F1E1B7D84009A6F2D /* Build configuration list for PBXProject "DouYu" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CB98778B1E1B7D84009A6F2D;
+			productRefGroup = CB9877951E1B7D84009A6F2D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CB9877931E1B7D84009A6F2D /* DouYu */,
+				CB9877A71E1B7D84009A6F2D /* DouYuTests */,
+				CB9877B21E1B7D84009A6F2D /* DouYuUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CB9877921E1B7D84009A6F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9877A21E1B7D84009A6F2D /* LaunchScreen.storyboard in Resources */,
+				CB98779F1E1B7D84009A6F2D /* Assets.xcassets in Resources */,
+				CB98779D1E1B7D84009A6F2D /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877A61E1B7D84009A6F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877B11E1B7D84009A6F2D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4426DD7C7EB086AABA15CC65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DouYu/Pods-DouYu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44A9E50176B9012373D30423 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DouYu/Pods-DouYu-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F984990D0C1D6FA34AEE6F88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CB9877901E1B7D84009A6F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9877EA1E1B8264009A6F2D /* YYLMineViewController.swift in Sources */,
+				CB9877981E1B7D84009A6F2D /* AppDelegate.swift in Sources */,
+				CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */,
+				CB9877E31E1B8182009A6F2D /* YYLBaseBarController.swift in Sources */,
+				CB9877EC1E1B8281009A6F2D /* YYLAttentionViewController.swift in Sources */,
+				CB9877E81E1B81FE009A6F2D /* YYLViewController.swift in Sources */,
+				CB9877F01E1B82A7009A6F2D /* YYLLivingViewController.swift in Sources */,
+				CB9877F21E1B82B7009A6F2D /* YYLHomeViewController.swift in Sources */,
+				CB9877EE1E1B8293009A6F2D /* YYLVideoViewController.swift in Sources */,
+				CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877A41E1B7D84009A6F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9877AD1E1B7D84009A6F2D /* DouYuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CB9877AF1E1B7D84009A6F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB9877B81E1B7D84009A6F2D /* DouYuUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CB9877AA1E1B7D84009A6F2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB9877931E1B7D84009A6F2D /* DouYu */;
+			targetProxy = CB9877A91E1B7D84009A6F2D /* PBXContainerItemProxy */;
+		};
+		CB9877B51E1B7D84009A6F2D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CB9877931E1B7D84009A6F2D /* DouYu */;
+			targetProxy = CB9877B41E1B7D84009A6F2D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CB98779B1E1B7D84009A6F2D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB98779C1E1B7D84009A6F2D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CB9877A01E1B7D84009A6F2D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CB9877A11E1B7D84009A6F2D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CB9877BA1E1B7D84009A6F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CB9877BB1E1B7D84009A6F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CB9877BD1E1B7D84009A6F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ABCF0488FA6FE6D1E5BE4211 /* Pods-DouYu.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		CB9877BE1E1B7D84009A6F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5458C0A29139A9A796B3483B /* Pods-DouYu.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYu/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYu;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		CB9877C01E1B7D84009A6F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DouYu.app/DouYu";
+			};
+			name = Debug;
+		};
+		CB9877C11E1B7D84009A6F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYuTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DouYu.app/DouYu";
+			};
+			name = Release;
+		};
+		CB9877C31E1B7D84009A6F2D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYuUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DouYu;
+			};
+			name = Debug;
+		};
+		CB9877C41E1B7D84009A6F2D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = ZDJS8T69H3;
+				INFOPLIST_FILE = DouYuUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYuUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = DouYu;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CB98778F1E1B7D84009A6F2D /* Build configuration list for PBXProject "DouYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9877BA1E1B7D84009A6F2D /* Debug */,
+				CB9877BB1E1B7D84009A6F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CB9877BC1E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9877BD1E1B7D84009A6F2D /* Debug */,
+				CB9877BE1E1B7D84009A6F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB9877BF1E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9877C01E1B7D84009A6F2D /* Debug */,
+				CB9877C11E1B7D84009A6F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		CB9877C21E1B7D84009A6F2D /* Build configuration list for PBXNativeTarget "DouYuUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CB9877C31E1B7D84009A6F2D /* Debug */,
+				CB9877C41E1B7D84009A6F2D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CB98778C1E1B7D84009A6F2D /* Project object */;
+}
