@@ -27,6 +27,22 @@
 		CB9877F21E1B82B7009A6F2D /* YYLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */; };
 		CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */; };
 		CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */; };
+		CB9F07A51E26114A001B0E48 /* LLCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F079E1E26114A001B0E48 /* LLCycleScrollView.swift */; };
+		CB9F07A61E26114A001B0E48 /* LLCycleScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F079F1E26114A001B0E48 /* LLCycleScrollViewCell.swift */; };
+		CB9F07A71E26114A001B0E48 /* LLFilledPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A01E26114A001B0E48 /* LLFilledPageControl.swift */; };
+		CB9F07A81E26114A001B0E48 /* LLPillPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A11E26114A001B0E48 /* LLPillPageControl.swift */; };
+		CB9F07A91E26114A001B0E48 /* LLSnakePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A21E26114A001B0E48 /* LLSnakePageControl.swift */; };
+		CB9F07AA1E26114A001B0E48 /* LLViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A31E26114A001B0E48 /* LLViewExtensions.swift */; };
+		CB9F07AB1E26114A001B0E48 /* LLCycleScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB9F07A41E26114A001B0E48 /* LLCycleScrollView.bundle */; };
+		CB9F07AF1E26210A001B0E48 /* YYLPageCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */; };
+		CBE0BEAB1E24B922007D0307 /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAA1E24B922007D0307 /* UIColor+hexColor.swift */; };
+		CBE0BEAD1E24C047007D0307 /* YYLCollectHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */; };
+		CBE0BEAF1E24CB60007D0307 /* YYLRecommedHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */; };
+		CBE0BEB11E24CB82007D0307 /* YYLClassifyHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB01E24CB82007D0307 /* YYLClassifyHeadView.swift */; };
+		CBE0BEBA1E24D13B007D0307 /* FilledPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB51E24D13B007D0307 /* FilledPageControl.swift */; };
+		CBE0BEBB1E24D13B007D0307 /* PillPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB61E24D13B007D0307 /* PillPageControl.swift */; };
+		CBE0BEBC1E24D13B007D0307 /* ScrollingPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB71E24D13B007D0307 /* ScrollingPageControl.swift */; };
+		CBE0BEBD1E24D13B007D0307 /* SnakePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB81E24D13B007D0307 /* SnakePageControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +91,23 @@
 		CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeViewController.swift; sourceTree = "<group>"; };
 		CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLNavigationViewController.swift; sourceTree = "<group>"; };
 		CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DouYuTV.swift; sourceTree = "<group>"; };
+		CB9F079E1E26114A001B0E48 /* LLCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollView.swift; sourceTree = "<group>"; };
+		CB9F079F1E26114A001B0E48 /* LLCycleScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollViewCell.swift; sourceTree = "<group>"; };
+		CB9F07A01E26114A001B0E48 /* LLFilledPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFilledPageControl.swift; sourceTree = "<group>"; };
+		CB9F07A11E26114A001B0E48 /* LLPillPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLPillPageControl.swift; sourceTree = "<group>"; };
+		CB9F07A21E26114A001B0E48 /* LLSnakePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLSnakePageControl.swift; sourceTree = "<group>"; };
+		CB9F07A31E26114A001B0E48 /* LLViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLViewExtensions.swift; sourceTree = "<group>"; };
+		CB9F07A41E26114A001B0E48 /* LLCycleScrollView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLCycleScrollView.bundle; sourceTree = "<group>"; };
+		CB9F07AD1E26181F001B0E48 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
+		CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLPageCountView.swift; sourceTree = "<group>"; };
+		CBE0BEAA1E24B922007D0307 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
+		CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLCollectHeadView.swift; sourceTree = "<group>"; };
+		CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLRecommedHeadView.swift; sourceTree = "<group>"; };
+		CBE0BEB01E24CB82007D0307 /* YYLClassifyHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLClassifyHeadView.swift; sourceTree = "<group>"; };
+		CBE0BEB51E24D13B007D0307 /* FilledPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilledPageControl.swift; sourceTree = "<group>"; };
+		CBE0BEB61E24D13B007D0307 /* PillPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillPageControl.swift; sourceTree = "<group>"; };
+		CBE0BEB71E24D13B007D0307 /* ScrollingPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingPageControl.swift; sourceTree = "<group>"; };
+		CBE0BEB81E24D13B007D0307 /* SnakePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakePageControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				CB46110E1E1DE00F00603C27 /* UIView+Positioning.swift */,
+				CBE0BEAA1E24B922007D0307 /* UIColor+hexColor.swift */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -153,6 +187,7 @@
 		CB9877961E1B7D84009A6F2D /* DouYu */ = {
 			isa = PBXGroup;
 			children = (
+				CB9F07AD1E26181F001B0E48 /* Bridging.h */,
 				CB2153F41E1CF993006BAC1B /* CAPSPageMenu.swift */,
 				CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */,
 				CB9877971E1B7D84009A6F2D /* AppDelegate.swift */,
@@ -267,6 +302,9 @@
 			isa = PBXGroup;
 			children = (
 				CB2153E91E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift */,
+				CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */,
+				CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */,
+				CBE0BEB01E24CB82007D0307 /* YYLClassifyHeadView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -437,8 +475,52 @@
 		CB9877E61E1B81DB009A6F2D /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				CB9F079C1E26114A001B0E48 /* Cycle */,
+				CBE0BEB21E24D13B007D0307 /* PageControls */,
+				CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		CB9F079C1E26114A001B0E48 /* Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F079D1E26114A001B0E48 /* LLCycleScrollView */,
+				CB9F07A41E26114A001B0E48 /* LLCycleScrollView.bundle */,
+			);
+			path = Cycle;
+			sourceTree = "<group>";
+		};
+		CB9F079D1E26114A001B0E48 /* LLCycleScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				CB9F079E1E26114A001B0E48 /* LLCycleScrollView.swift */,
+				CB9F079F1E26114A001B0E48 /* LLCycleScrollViewCell.swift */,
+				CB9F07A01E26114A001B0E48 /* LLFilledPageControl.swift */,
+				CB9F07A11E26114A001B0E48 /* LLPillPageControl.swift */,
+				CB9F07A21E26114A001B0E48 /* LLSnakePageControl.swift */,
+				CB9F07A31E26114A001B0E48 /* LLViewExtensions.swift */,
+			);
+			path = LLCycleScrollView;
+			sourceTree = "<group>";
+		};
+		CBE0BEB21E24D13B007D0307 /* PageControls */ = {
+			isa = PBXGroup;
+			children = (
+				CBE0BEB31E24D13B007D0307 /* Classes */,
+			);
+			path = PageControls;
+			sourceTree = "<group>";
+		};
+		CBE0BEB31E24D13B007D0307 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CBE0BEB51E24D13B007D0307 /* FilledPageControl.swift */,
+				CBE0BEB61E24D13B007D0307 /* PillPageControl.swift */,
+				CBE0BEB71E24D13B007D0307 /* ScrollingPageControl.swift */,
+				CBE0BEB81E24D13B007D0307 /* SnakePageControl.swift */,
+			);
+			path = Classes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -557,6 +639,7 @@
 			files = (
 				CB9877A21E1B7D84009A6F2D /* LaunchScreen.storyboard in Resources */,
 				CB98779F1E1B7D84009A6F2D /* Assets.xcassets in Resources */,
+				CB9F07AB1E26114A001B0E48 /* LLCycleScrollView.bundle in Resources */,
 				CB98779D1E1B7D84009A6F2D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,20 +713,35 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB9F07A61E26114A001B0E48 /* LLCycleScrollViewCell.swift in Sources */,
+				CB9F07A81E26114A001B0E48 /* LLPillPageControl.swift in Sources */,
 				CB9877EA1E1B8264009A6F2D /* YYLMineViewController.swift in Sources */,
 				CB9877981E1B7D84009A6F2D /* AppDelegate.swift in Sources */,
 				CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */,
+				CB9F07A51E26114A001B0E48 /* LLCycleScrollView.swift in Sources */,
 				CB9877E31E1B8182009A6F2D /* YYLBaseBarController.swift in Sources */,
+				CBE0BEAD1E24C047007D0307 /* YYLCollectHeadView.swift in Sources */,
 				CB9877EC1E1B8281009A6F2D /* YYLAttentionViewController.swift in Sources */,
 				CB9877E81E1B81FE009A6F2D /* YYLViewController.swift in Sources */,
 				CB9877F01E1B82A7009A6F2D /* YYLLivingViewController.swift in Sources */,
 				CB2153EA1E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift in Sources */,
+				CB9F07AA1E26114A001B0E48 /* LLViewExtensions.swift in Sources */,
 				CB2153F51E1CF993006BAC1B /* CAPSPageMenu.swift in Sources */,
+				CBE0BEAB1E24B922007D0307 /* UIColor+hexColor.swift in Sources */,
+				CBE0BEBB1E24D13B007D0307 /* PillPageControl.swift in Sources */,
 				CB9877F21E1B82B7009A6F2D /* YYLHomeViewController.swift in Sources */,
 				CB4611111E1DF57300603C27 /* YYLHomeClassfiyViewController.swift in Sources */,
+				CBE0BEBA1E24D13B007D0307 /* FilledPageControl.swift in Sources */,
+				CBE0BEBD1E24D13B007D0307 /* SnakePageControl.swift in Sources */,
+				CBE0BEBC1E24D13B007D0307 /* ScrollingPageControl.swift in Sources */,
+				CB9F07A71E26114A001B0E48 /* LLFilledPageControl.swift in Sources */,
 				CB9877EE1E1B8293009A6F2D /* YYLVideoViewController.swift in Sources */,
+				CB9F07A91E26114A001B0E48 /* LLSnakePageControl.swift in Sources */,
+				CB9F07AF1E26210A001B0E48 /* YYLPageCountView.swift in Sources */,
 				CB46110F1E1DE00F00603C27 /* UIView+Positioning.swift in Sources */,
+				CBE0BEB11E24CB82007D0307 /* YYLClassifyHeadView.swift in Sources */,
 				CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */,
+				CBE0BEAF1E24CB60007D0307 /* YYLRecommedHeadView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,12 +892,14 @@
 			baseConfigurationReference = ABCF0488FA6FE6D1E5BE4211 /* Pods-DouYu.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZDJS8T69H3;
 				INFOPLIST_FILE = DouYu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYu;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shopexYYl.douyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DouYu/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Pods/PageMenu/Classes/CAPSPageMenu.swift\"";
 			};
@@ -810,12 +910,14 @@
 			baseConfigurationReference = 5458C0A29139A9A796B3483B /* Pods-DouYu.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = ZDJS8T69H3;
 				INFOPLIST_FILE = DouYu/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = adsds.DouYu;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.shopexYYl.douyu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/DouYu/Bridging.h";
 				SWIFT_VERSION = 3.0;
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Pods/PageMenu/Classes/CAPSPageMenu.swift\"";
 			};

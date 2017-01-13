@@ -8,6 +8,7 @@
 
 import UIKit
 import Masonry
+import SDWebImage
 
 let  KScreenWith = UIScreen .main.bounds.size.width
 let  KScreenHight = UIScreen.main.bounds.size.height
