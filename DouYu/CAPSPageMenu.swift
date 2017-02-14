@@ -88,7 +88,6 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
 
     
     // MARK: - Properties
-    
     let menuScrollView = UIScrollView()
     let controllerScrollView = UIScrollView()
     var controllerArray : [UIViewController] = []
@@ -163,16 +162,15 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     :param: options Dictionary holding any customization options user might want to set
     */
     public init(viewControllers: [UIViewController], frame: CGRect, options: [String: AnyObject]?) {
-        super.init(nibName: nil, bundle: nil)
         
+        super.init(nibName: nil, bundle: nil)
         controllerArray = viewControllers
         
         self.view.frame = frame
     }
-    
+
     public convenience init(viewControllers: [UIViewController], frame: CGRect, pageMenuOptions: [CAPSPageMenuOption]?) {
         self.init(viewControllers:viewControllers, frame:frame, options:nil)
-        
         if let options = pageMenuOptions {
             for option in options {
                 switch (option) {
@@ -243,7 +241,6 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-	
 	// MARK: - Container View Controller
 	open override var shouldAutomaticallyForwardAppearanceMethods : Bool {
 		return true
@@ -263,7 +260,6 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         controllerScrollView.translatesAutoresizingMaskIntoConstraints = false
         controllerScrollView.alwaysBounceHorizontal = enableHorizontalBounce
         controllerScrollView.bounces = enableHorizontalBounce
-        
         controllerScrollView.frame = CGRect(x: 0.0, y: menuHeight, width: self.view.frame.width, height: self.view.frame.height)
         
         self.view.addSubview(controllerScrollView)
@@ -276,13 +272,13 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         
         // Set up menu scroll view
         menuScrollView.translatesAutoresizingMaskIntoConstraints = false
-        
+        menuScrollView.backgroundColor = UIColor.red
         menuScrollView.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.width, height: menuHeight)
         
         self.view.addSubview(menuScrollView)
         
         let menuScrollView_constraint_H:Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuScrollView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
-        let menuScrollView_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:[menuScrollView(\(menuHeight))]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
+        let menuScrollView_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:[menuScrollView(\(menuHeight-0.5))]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary)
         
         self.view.addConstraints(menuScrollView_constraint_H)
         self.view.addConstraints(menuScrollView_constraint_V)
@@ -296,12 +292,13 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             self.view.addSubview(menuBottomHairline)
             
             let menuBottomHairline_constraint_H:Array = NSLayoutConstraint.constraints(withVisualFormat: "H:|[menuBottomHairline]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline":menuBottomHairline])
-            let menuBottomHairline_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(menuHeight)-[menuBottomHairline(0)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline":menuBottomHairline])
+            let menuBottomHairline_constraint_V:Array = NSLayoutConstraint.constraints(withVisualFormat: "V:|-\(menuHeight)-[menuBottomHairline(0.5)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["menuBottomHairline":menuBottomHairline])
             
             self.view.addConstraints(menuBottomHairline_constraint_H)
             self.view.addConstraints(menuBottomHairline_constraint_V)
             
-            menuBottomHairline.backgroundColor = bottomMenuHairlineColor
+//            menuBottomHairline.backgroundColor = bottomMenuHairlineColor
+             menuBottomHairline.backgroundColor = UIColor.init(hexString: "dddddd")
         }
         
         // Disable scroll bars
@@ -466,7 +463,13 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
             }
         }
         
-        selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
+//        selectionIndicatorView = UIView(frame: selectionIndicatorFrame)
+//        CGRect(x: 0.0, y: menuHeight - selectionIndicatorHeight, width: self.view.frame.width / CGFloat(controllerArray.count), height: selectionIndicatorHeight)
+//        selectionIndicatorView = UIView(frame:selectionIndicatorFrame)
+        let menuites:MenuItemView = self.menuItems[0]
+        let originWidth:CGFloat = getTextRectSize(text:(menuites.titleLabel?.text)!, font:(menuites.titleLabel?.font)!, size:(menuites.titleLabel?.size)!).width+20.0
+        let  originX:CGFloat = (self.view.frame.width / CGFloat(controllerArray.count) - originWidth)/2.0
+        selectionIndicatorView = UIView(frame:CGRect(x:originX ,y:menuHeight-3.0,width:originWidth,height:3.0))
         selectionIndicatorView.backgroundColor = selectionIndicatorColor
         menuScrollView.addSubview(selectionIndicatorView)
         
@@ -718,8 +721,10 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
                 var selectionIndicatorX : CGFloat = 0.0
                 
                 if self.useMenuLikeSegmentedControl {
-                    selectionIndicatorX = CGFloat(pageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))
-                    selectionIndicatorWidth = self.view.frame.width / CGFloat(self.controllerArray.count)
+                    let menuites:MenuItemView = self.menuItems[pageIndex]
+                    selectionIndicatorWidth = getTextRectSize(text:(menuites.titleLabel?.text)!, font:(menuites.titleLabel?.font)!, size:(menuites.titleLabel?.size)!).width+20.0
+                    selectionIndicatorX = CGFloat(pageIndex) * (self.view.frame.width / CGFloat(self.controllerArray.count))+(self.view.frame.width / CGFloat(self.controllerArray.count)-selectionIndicatorWidth)/2.0
+//                    selectionIndicatorWidth = self.view.frame.width / CGFloat(self.controllerArray.count)
                 } else if self.menuItemWidthBasedOnTitleTextWidth {
                     selectionIndicatorWidth = self.menuItemWidths[pageIndex]
                     selectionIndicatorX = self.menuItems[pageIndex].frame.minX
@@ -881,7 +886,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     
     override open func viewDidLayoutSubviews() {
         // Configure controller scroll view content size
-        controllerScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(controllerArray.count), height: self.view.frame.height - menuHeight)
+        controllerScrollView.contentSize = CGSize(width: self.view.frame.width * CGFloat(controllerArray.count), height: self.view.frame.height - menuHeight-64.0)
         
         let oldCurrentOrientationIsPortrait : Bool = currentOrientationIsPortrait
         currentOrientationIsPortrait = UIApplication.shared.statusBarOrientation.isPortrait

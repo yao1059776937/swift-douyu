@@ -192,7 +192,7 @@ public typealias LLdidSelectItemAtIndexClosure = (NSInteger) -> Void
     //滑动时的collect的index
     fileprivate var startIndex: NSInteger = 0
     //结束滑动时的collect的index
-    fileprivate var endIndex : NSInteger?
+    fileprivate var endIndex : NSInteger = 0
     //存储上一个progress 用于判断是否翻页了
     fileprivate var perprogress : NSInteger = 0
     // 加载状态图
@@ -341,25 +341,25 @@ public typealias LLdidSelectItemAtIndexClosure = (NSInteger) -> Void
     
     // MARK: Actions
     //手动滑动
-    func manualCustomPageAction(_ startIndex:NSInteger,_ endIndex:NSInteger){
-//        self.collectionView.isUserInteractionEnabled = false
-        //自己加一个自定义的pageController
-        if customPageControlStyle == .custom {
-            var view1 = UIView()
-            var view2 = UIView()
-            
-                view1 = customPage?.countArray[startIndex] as! UIView
-                view2 = customPage?.countArray[endIndex] as! UIView
-                var x1:CGFloat
-                x1 = view1.x
-                let x2:CGFloat = view2.x
-                UIView.animate(withDuration: 0.5, animations: {
-                    view1.x = x2
-                    view2.x = x1
-                })
-                customPage?.countArray.exchangeObject(at:startIndex, withObjectAt:endIndex)
-        }
-    }
+//    func manualCustomPageAction(_ startIndex:NSInteger,_ endIndex:NSInteger){
+////        self.collectionView.isUserInteractionEnabled = false
+//        //自己加一个自定义的pageController
+//        if customPageControlStyle == .custom {
+//            var view1 = UIView()
+//            var view2 = UIView()
+//            
+//                view1 = customPage?.countArray[startIndex] as! UIView
+//                view2 = customPage?.countArray[endIndex] as! UIView
+//                var x1:CGFloat
+//                x1 = view1.x
+//                let x2:CGFloat = view2.x
+//                UIView.animate(withDuration: 0.5, animations: {
+//                    view1.x = x2
+//                    view2.x = x1
+//                })
+//                customPage?.countArray.exchangeObject(at:startIndex, withObjectAt:endIndex)
+//        }
+//    }
     func automaticScroll() {
         
         if totalItemsCount == 0 {return}
@@ -469,52 +469,52 @@ public typealias LLdidSelectItemAtIndexClosure = (NSInteger) -> Void
                     collectionView.scrollToItem(at: IndexPath.init(item: Int(totalItemsCount/2), section: 0), at: position, animated: false)
                 }
                 progress = currentOffsetX / scrollView.frame.size.width
-                self.endIndex = NSInteger(progress)
-                if progress - CGFloat(self.endIndex!) == 0 {
-//
-                    if !(self.startIndex == self.imagePaths.count || self.endIndex == self.imagePaths.count) {
-                        if self.startIndex == self.imagePaths.count-1 && self.endIndex==0 {
-                            self.manualCustomPageAction(self.startIndex, 0)
-                            self.perprogress += 1
-                        }else if self.perprogress%self.imagePaths.count - NSInteger(progress) == 0 {
-                            
-                        }else if NSInteger(progress) >= 0{
-                            if self.perprogress%self.imagePaths.count > NSInteger(progress) {
-                            if self.startIndex == 0{
-                                self.manualCustomPageAction(self.imagePaths.count-1,self.startIndex)
-                            }else if self.endIndex == 0{
-                                self.manualCustomPageAction(0,self.startIndex)
-                            }else{
-                                self.manualCustomPageAction(self.startIndex-1,self.startIndex)
-                                }
-                            self.perprogress -= 1
-                        }else{
-                            if self.startIndex == self.imagePaths.count-1{
-                                self.manualCustomPageAction(self.startIndex, 0)
-                            }else{
-                                self.manualCustomPageAction(self.startIndex, self.endIndex!)
-                            }
-                            self.perprogress += 1
-                        }
-                        }else if NSInteger(progress) < 0{
-                            if self.perprogress > NSInteger(progress) {
-                                if self.startIndex == 0{
-                                    self.manualCustomPageAction(self.imagePaths.count-1,self.startIndex)
-                                }else{
-                                    self.manualCustomPageAction(self.startIndex-1,self.startIndex)
-                                }
-                                self.perprogress -= 1
-                            }else{
-                                if self.startIndex == self.imagePaths.count-1{
-                                    self.manualCustomPageAction(self.startIndex, 0)
-                                }else{
-                                    self.manualCustomPageAction(self.startIndex, self.imagePaths.count + self.endIndex!%self.imagePaths.count)
-                                }
-                                self.perprogress += 1
-                            }
-                        }
-                    }
-                }
+//                self.endIndex = NSInteger(progress)
+//                if progress - CGFloat(self.endIndex!) == 0 {
+////
+//                    if !(self.startIndex == self.imagePaths.count || self.endIndex == self.imagePaths.count) {
+//                        if self.startIndex == self.imagePaths.count-1 && self.endIndex==0 {
+//                            self.manualCustomPageAction(self.startIndex, 0)
+//                            self.perprogress += 1
+//                        }else if self.perprogress%self.imagePaths.count - NSInteger(progress) == 0 {
+//                            
+//                        }else if NSInteger(progress) >= 0{
+//                            if self.perprogress%self.imagePaths.count > NSInteger(progress) {
+//                            if self.startIndex == 0{
+//                                self.manualCustomPageAction(self.imagePaths.count-1,self.startIndex)
+//                            }else if self.endIndex == 0{
+//                                self.manualCustomPageAction(0,self.startIndex)
+//                            }else{
+//                                self.manualCustomPageAction(self.startIndex-1,self.startIndex)
+//                                }
+//                            self.perprogress -= 1
+//                        }else{
+//                            if self.startIndex == self.imagePaths.count-1{
+//                                self.manualCustomPageAction(self.startIndex, 0)
+//                            }else{
+//                                self.manualCustomPageAction(self.startIndex, self.endIndex!)
+//                            }
+//                            self.perprogress += 1
+//                        }
+//                        }else if NSInteger(progress) < 0{
+//                            if self.perprogress > NSInteger(progress) {
+//                                if self.startIndex == 0{
+//                                    self.manualCustomPageAction(self.imagePaths.count-1,self.startIndex)
+//                                }else{
+//                                    self.manualCustomPageAction(self.startIndex-1,self.startIndex)
+//                                }
+//                                self.perprogress -= 1
+//                            }else{
+//                                if self.startIndex == self.imagePaths.count-1{
+//                                    self.manualCustomPageAction(self.startIndex, 0)
+//                                }else{
+//                                    self.manualCustomPageAction(self.startIndex, self.imagePaths.count + self.endIndex!%self.imagePaths.count)
+//                                }
+//                                self.perprogress += 1
+//                            }
+//                        }
+//                    }
+//                }
 //                self.perprogress = NSInteger(progress)
             }else if scrollDirection == .vertical{
                 let currentOffsetY = scrollView.contentOffset.y - (CGFloat(totalItemsCount) * scrollView.frame.size.height) / 2
@@ -542,11 +542,30 @@ public typealias LLdidSelectItemAtIndexClosure = (NSInteger) -> Void
         if autoScroll! {
             invalidateTimer()
         }
-        self.startIndex = pageControlIndexWithCurrentCellIndex(index: currentIndex())
+        //做个保护操作，防止滑动太快出现数组越界
+        let currentPage = pageControlIndexWithCurrentCellIndex(index: currentIndex())
+        if currentPage == self.imagePaths.count-1{
+                   self.endIndex = 0
+        }
+//        self.startIndex = pageControlIndexWithCurrentCellIndex(index: currentIndex())
     }
     open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        
+        self.endIndex = NSInteger(scrollView.contentOffset.x/KScreenWith) - 50*self.imagePaths.count+1
+        print("%ld",self.endIndex)
+        if self.endIndex == self.imagePaths.count{
+            //滑到了尽头，重新置0
+          self.endIndex = 0
+//        self.customPage?.exchangeCount(self.startIndex, self.endIndex)
+        self.startIndex = self.endIndex
+        }else{
+//            self.customPage?.exchangeCount(self.startIndex, self.endIndex)
+            self.startIndex = self.endIndex
+        }
+
         if autoScroll! {
             setupTimer()
+
         }
     }
 }

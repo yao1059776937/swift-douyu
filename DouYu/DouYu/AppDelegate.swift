@@ -19,9 +19,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
         window?.backgroundColor = UIColor.white
         window?.makeKeyAndVisible()
+
         let root = YYLBaseBarController()
         
 //        let navigation = YYLNavigationViewController(rootViewController:root)
+
         window?.rootViewController = root
 //        window?.addSubview(navigation.view)
         return true

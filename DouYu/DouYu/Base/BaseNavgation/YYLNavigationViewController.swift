@@ -12,7 +12,11 @@ class YYLNavigationViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+//        self.navigationBar.setBackgroundImage(UIImage.init(named:"Img_orange"), for: .default)
+//        self.navigationBar .titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white,NSFontAttributeName:TextFourTeenFont]
+//        self.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.isHidden = true
         // Do any additional setup after loading the view.
     }
 

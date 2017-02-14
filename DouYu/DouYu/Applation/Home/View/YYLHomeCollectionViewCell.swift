@@ -26,7 +26,7 @@ class YYLHomeCollectionViewCell: UICollectionViewCell {
         cover.image = UIImage(named:"默认banner图")
         self.contentView.addSubview(self.cover)
         self.cover.mas_makeConstraints { (make) in
-            make?.top.mas_equalTo()(self.contentView)?.setOffset(0)
+            make?.top.mas_equalTo()(self.contentView)?.setOffset(5.0)
             make?.left.mas_equalTo()(self.contentView.mas_left)?.setOffset(3.0)
             make?.bottom.mas_equalTo()(self.contentView.mas_bottom)?.setOffset(-30.0)
             make?.width.setOffset((KScreenWith-12)/2.0)

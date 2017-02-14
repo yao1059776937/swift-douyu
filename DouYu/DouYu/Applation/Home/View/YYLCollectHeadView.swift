@@ -14,6 +14,8 @@ class YYLCollectHeadView: UIView {
 //    var content = UILabel()
 //    var more = UIButton()
 
+    var moreLiving:(()->())?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initializeCompont()
@@ -60,10 +62,16 @@ class YYLCollectHeadView: UIView {
         more.setTitle("更多", for: UIControlState.normal)
         more.titleLabel?.font = TextFourTeenFont
         more.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, -100);
+        more.addTarget(self, action:#selector(btnMore), for: UIControlEvents.touchUpInside)
 //        more.titleEdgeInsets = UIEdgeInsetsMake(0, -50, <#T##bottom: CGFloat##CGFloat#>, <#T##right: CGFloat##CGFloat#>)
         more.setImage(UIImage(named:"homeMoreIcon"), for: UIControlState.normal)
         more.setTitleColor(UIColor.init(hexString: "dddddd"), for: UIControlState.normal)
         self.addSubview(more)
         return more
     }()
+    @objc private func btnMore(){
+        if self.moreLiving != nil {
+            self.moreLiving!()
+        }
+    }
 }

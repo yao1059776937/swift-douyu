@@ -10,8 +10,12 @@
 		249DB423A9B0E0F2D33849DC /* Pods_DouYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B680077163788C423E4C984F /* Pods_DouYu.framework */; };
 		CB2153EA1E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2153E91E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift */; };
 		CB2153F51E1CF993006BAC1B /* CAPSPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2153F41E1CF993006BAC1B /* CAPSPageMenu.swift */; };
+		CB2995241E3094550028112B /* YYLHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2995201E3094550028112B /* YYLHistoryViewController.swift */; };
 		CB46110F1E1DE00F00603C27 /* UIView+Positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB46110E1E1DE00F00603C27 /* UIView+Positioning.swift */; };
 		CB4611111E1DF57300603C27 /* YYLHomeClassfiyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4611101E1DF57300603C27 /* YYLHomeClassfiyViewController.swift */; };
+		CB9252961E4D8DEA009562CD /* YYLLivingHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9252951E4D8DEA009562CD /* YYLLivingHeadView.swift */; };
+		CB9252981E4DAB1A009562CD /* YYLShowAllHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9252971E4DAB1A009562CD /* YYLShowAllHeadView.swift */; };
+		CB9310B31E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9310B21E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift */; };
 		CB9877981E1B7D84009A6F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877971E1B7D84009A6F2D /* AppDelegate.swift */; };
 		CB98779D1E1B7D84009A6F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB98779B1E1B7D84009A6F2D /* Main.storyboard */; };
 		CB98779F1E1B7D84009A6F2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB98779E1E1B7D84009A6F2D /* Assets.xcassets */; };
@@ -27,6 +31,8 @@
 		CB9877F21E1B82B7009A6F2D /* YYLHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */; };
 		CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */; };
 		CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */; };
+		CB9C66511E30C49F0038DD34 /* YYLCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9C66501E30C49F0038DD34 /* YYLCollectionView.swift */; };
+		CB9CBE0E1E3732EA00783974 /* YYLLivingClassfiyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9CBE0D1E3732EA00783974 /* YYLLivingClassfiyViewController.swift */; };
 		CB9F07A51E26114A001B0E48 /* LLCycleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F079E1E26114A001B0E48 /* LLCycleScrollView.swift */; };
 		CB9F07A61E26114A001B0E48 /* LLCycleScrollViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F079F1E26114A001B0E48 /* LLCycleScrollViewCell.swift */; };
 		CB9F07A71E26114A001B0E48 /* LLFilledPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A01E26114A001B0E48 /* LLFilledPageControl.swift */; };
@@ -35,6 +41,10 @@
 		CB9F07AA1E26114A001B0E48 /* LLViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07A31E26114A001B0E48 /* LLViewExtensions.swift */; };
 		CB9F07AB1E26114A001B0E48 /* LLCycleScrollView.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CB9F07A41E26114A001B0E48 /* LLCycleScrollView.bundle */; };
 		CB9F07AF1E26210A001B0E48 /* YYLPageCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */; };
+		CBB326961E2DB14D00DCECD4 /* YYLCustomCycleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB326951E2DB14D00DCECD4 /* YYLCustomCycleView.swift */; };
+		CBB326981E2DB16600DCECD4 /* YYLCycleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBB326971E2DB16600DCECD4 /* YYLCycleCollectionViewCell.swift */; };
+		CBD2B6AD1E31AEBC00B17E76 /* YYLMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2B6A91E31AEBC00B17E76 /* YYLMenuView.swift */; };
+		CBD2B6AF1E31AED600B17E76 /* YYLMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBD2B6AE1E31AED600B17E76 /* YYLMenuTableViewCell.swift */; };
 		CBE0BEAB1E24B922007D0307 /* UIColor+hexColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAA1E24B922007D0307 /* UIColor+hexColor.swift */; };
 		CBE0BEAD1E24C047007D0307 /* YYLCollectHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */; };
 		CBE0BEAF1E24CB60007D0307 /* YYLRecommedHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */; };
@@ -43,6 +53,7 @@
 		CBE0BEBB1E24D13B007D0307 /* PillPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB61E24D13B007D0307 /* PillPageControl.swift */; };
 		CBE0BEBC1E24D13B007D0307 /* ScrollingPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB71E24D13B007D0307 /* ScrollingPageControl.swift */; };
 		CBE0BEBD1E24D13B007D0307 /* SnakePageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE0BEB81E24D13B007D0307 /* SnakePageControl.swift */; };
+		CBE811B21E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBE811B11E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +79,12 @@
 		B680077163788C423E4C984F /* Pods_DouYu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB2153E91E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB2153F41E1CF993006BAC1B /* CAPSPageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CAPSPageMenu.swift; path = ../CAPSPageMenu.swift; sourceTree = "<group>"; };
+		CB2995201E3094550028112B /* YYLHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHistoryViewController.swift; sourceTree = "<group>"; };
 		CB46110E1E1DE00F00603C27 /* UIView+Positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Positioning.swift"; sourceTree = "<group>"; };
 		CB4611101E1DF57300603C27 /* YYLHomeClassfiyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeClassfiyViewController.swift; sourceTree = "<group>"; };
+		CB9252951E4D8DEA009562CD /* YYLLivingHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingHeadView.swift; sourceTree = "<group>"; };
+		CB9252971E4DAB1A009562CD /* YYLShowAllHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLShowAllHeadView.swift; sourceTree = "<group>"; };
+		CB9310B21E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHistorySubViewsViewController.swift; sourceTree = "<group>"; };
 		CB9877941E1B7D84009A6F2D /* DouYu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DouYu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB9877971E1B7D84009A6F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB98779C1E1B7D84009A6F2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -91,6 +106,8 @@
 		CB9877F11E1B82B7009A6F2D /* YYLHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeViewController.swift; sourceTree = "<group>"; };
 		CB9877F31E1B8D8E009A6F2D /* YYLNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLNavigationViewController.swift; sourceTree = "<group>"; };
 		CB9877F51E1B9EB1009A6F2D /* DouYuTV.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DouYuTV.swift; sourceTree = "<group>"; };
+		CB9C66501E30C49F0038DD34 /* YYLCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLCollectionView.swift; sourceTree = "<group>"; };
+		CB9CBE0D1E3732EA00783974 /* YYLLivingClassfiyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingClassfiyViewController.swift; sourceTree = "<group>"; };
 		CB9F079E1E26114A001B0E48 /* LLCycleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollView.swift; sourceTree = "<group>"; };
 		CB9F079F1E26114A001B0E48 /* LLCycleScrollViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLCycleScrollViewCell.swift; sourceTree = "<group>"; };
 		CB9F07A01E26114A001B0E48 /* LLFilledPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LLFilledPageControl.swift; sourceTree = "<group>"; };
@@ -100,6 +117,10 @@
 		CB9F07A41E26114A001B0E48 /* LLCycleScrollView.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = LLCycleScrollView.bundle; sourceTree = "<group>"; };
 		CB9F07AD1E26181F001B0E48 /* Bridging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Bridging.h; sourceTree = "<group>"; };
 		CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLPageCountView.swift; sourceTree = "<group>"; };
+		CBB326951E2DB14D00DCECD4 /* YYLCustomCycleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLCustomCycleView.swift; sourceTree = "<group>"; };
+		CBB326971E2DB16600DCECD4 /* YYLCycleCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLCycleCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBD2B6A91E31AEBC00B17E76 /* YYLMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLMenuView.swift; sourceTree = "<group>"; };
+		CBD2B6AE1E31AED600B17E76 /* YYLMenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLMenuTableViewCell.swift; sourceTree = "<group>"; };
 		CBE0BEAA1E24B922007D0307 /* UIColor+hexColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+hexColor.swift"; sourceTree = "<group>"; };
 		CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLCollectHeadView.swift; sourceTree = "<group>"; };
 		CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLRecommedHeadView.swift; sourceTree = "<group>"; };
@@ -108,6 +129,7 @@
 		CBE0BEB61E24D13B007D0307 /* PillPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PillPageControl.swift; sourceTree = "<group>"; };
 		CBE0BEB71E24D13B007D0307 /* ScrollingPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollingPageControl.swift; sourceTree = "<group>"; };
 		CBE0BEB81E24D13B007D0307 /* SnakePageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnakePageControl.swift; sourceTree = "<group>"; };
+		CBE811B11E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLClassifyCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +173,47 @@
 				B680077163788C423E4C984F /* Pods_DouYu.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB29951E1E3094550028112B /* WatchHistory */ = {
+			isa = PBXGroup;
+			children = (
+				CB29951F1E3094550028112B /* Controller */,
+				CB2995211E3094550028112B /* Model */,
+				CB2995221E3094550028112B /* View */,
+				CB2995231E3094550028112B /* ViewModel */,
+			);
+			path = WatchHistory;
+			sourceTree = "<group>";
+		};
+		CB29951F1E3094550028112B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB2995201E3094550028112B /* YYLHistoryViewController.swift */,
+				CB9310B21E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB2995211E3094550028112B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB2995221E3094550028112B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB2995231E3094550028112B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CB46110B1E1DDFBC00603C27 /* Category */ = {
@@ -222,6 +285,8 @@
 		CB9877C51E1B7F2D009A6F2D /* Applation */ = {
 			isa = PBXGroup;
 			children = (
+				CB9CBE081E3732C500783974 /* LivingClassfiyDetail */,
+				CB29951E1E3094550028112B /* WatchHistory */,
 				CB9877D51E1B7F2D009A6F2D /* Mine */,
 				CB9877C61E1B7F2D009A6F2D /* Attention */,
 				CB9877DA1E1B7F2D009A6F2D /* Video */,
@@ -305,6 +370,7 @@
 				CBE0BEAC1E24C047007D0307 /* YYLCollectHeadView.swift */,
 				CBE0BEAE1E24CB60007D0307 /* YYLRecommedHeadView.swift */,
 				CBE0BEB01E24CB82007D0307 /* YYLClassifyHeadView.swift */,
+				CBE811B11E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -460,6 +526,7 @@
 			isa = PBXGroup;
 			children = (
 				CB9877E71E1B81FE009A6F2D /* YYLViewController.swift */,
+				CB9C66501E30C49F0038DD34 /* YYLCollectionView.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -475,11 +542,55 @@
 		CB9877E61E1B81DB009A6F2D /* BaseView */ = {
 			isa = PBXGroup;
 			children = (
+				CBD2B6A71E31AEBC00B17E76 /* YYLMenu */,
+				CBB326941E2DB14D00DCECD4 /* YYLCustomCycleView */,
 				CB9F079C1E26114A001B0E48 /* Cycle */,
 				CBE0BEB21E24D13B007D0307 /* PageControls */,
 				CB9F07AE1E26210A001B0E48 /* YYLPageCountView.swift */,
 			);
 			path = BaseView;
+			sourceTree = "<group>";
+		};
+		CB9CBE081E3732C500783974 /* LivingClassfiyDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CBE091E3732C500783974 /* Controller */,
+				CB9CBE0A1E3732C500783974 /* Model */,
+				CB9CBE0B1E3732C500783974 /* View */,
+				CB9CBE0C1E3732C500783974 /* ViewModel */,
+			);
+			path = LivingClassfiyDetail;
+			sourceTree = "<group>";
+		};
+		CB9CBE091E3732C500783974 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CB9CBE0D1E3732EA00783974 /* YYLLivingClassfiyViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB9CBE0A1E3732C500783974 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB9CBE0B1E3732C500783974 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB9252951E4D8DEA009562CD /* YYLLivingHeadView.swift */,
+				CB9252971E4DAB1A009562CD /* YYLShowAllHeadView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB9CBE0C1E3732C500783974 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CB9F079C1E26114A001B0E48 /* Cycle */ = {
@@ -502,6 +613,56 @@
 				CB9F07A31E26114A001B0E48 /* LLViewExtensions.swift */,
 			);
 			path = LLCycleScrollView;
+			sourceTree = "<group>";
+		};
+		CBB326941E2DB14D00DCECD4 /* YYLCustomCycleView */ = {
+			isa = PBXGroup;
+			children = (
+				CBB326951E2DB14D00DCECD4 /* YYLCustomCycleView.swift */,
+				CBB326971E2DB16600DCECD4 /* YYLCycleCollectionViewCell.swift */,
+			);
+			path = YYLCustomCycleView;
+			sourceTree = "<group>";
+		};
+		CBD2B6A71E31AEBC00B17E76 /* YYLMenu */ = {
+			isa = PBXGroup;
+			children = (
+				CBD2B6A81E31AEBC00B17E76 /* Controller */,
+				CBD2B6AA1E31AEBC00B17E76 /* Model */,
+				CBD2B6AB1E31AEBC00B17E76 /* View */,
+				CBD2B6AC1E31AEBC00B17E76 /* ViewModel */,
+			);
+			path = YYLMenu;
+			sourceTree = "<group>";
+		};
+		CBD2B6A81E31AEBC00B17E76 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CBD2B6A91E31AEBC00B17E76 /* YYLMenuView.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CBD2B6AA1E31AEBC00B17E76 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CBD2B6AB1E31AEBC00B17E76 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CBD2B6AE1E31AED600B17E76 /* YYLMenuTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CBD2B6AC1E31AEBC00B17E76 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CBE0BEB21E24D13B007D0307 /* PageControls */ = {
@@ -713,16 +874,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBB326981E2DB16600DCECD4 /* YYLCycleCollectionViewCell.swift in Sources */,
 				CB9F07A61E26114A001B0E48 /* LLCycleScrollViewCell.swift in Sources */,
+				CB9CBE0E1E3732EA00783974 /* YYLLivingClassfiyViewController.swift in Sources */,
 				CB9F07A81E26114A001B0E48 /* LLPillPageControl.swift in Sources */,
+				CBD2B6AF1E31AED600B17E76 /* YYLMenuTableViewCell.swift in Sources */,
+				CB9310B31E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift in Sources */,
 				CB9877EA1E1B8264009A6F2D /* YYLMineViewController.swift in Sources */,
+				CBB326961E2DB14D00DCECD4 /* YYLCustomCycleView.swift in Sources */,
+				CB9252981E4DAB1A009562CD /* YYLShowAllHeadView.swift in Sources */,
 				CB9877981E1B7D84009A6F2D /* AppDelegate.swift in Sources */,
 				CB9877F41E1B8D8E009A6F2D /* YYLNavigationViewController.swift in Sources */,
+				CBD2B6AD1E31AEBC00B17E76 /* YYLMenuView.swift in Sources */,
 				CB9F07A51E26114A001B0E48 /* LLCycleScrollView.swift in Sources */,
 				CB9877E31E1B8182009A6F2D /* YYLBaseBarController.swift in Sources */,
 				CBE0BEAD1E24C047007D0307 /* YYLCollectHeadView.swift in Sources */,
 				CB9877EC1E1B8281009A6F2D /* YYLAttentionViewController.swift in Sources */,
 				CB9877E81E1B81FE009A6F2D /* YYLViewController.swift in Sources */,
+				CB9C66511E30C49F0038DD34 /* YYLCollectionView.swift in Sources */,
 				CB9877F01E1B82A7009A6F2D /* YYLLivingViewController.swift in Sources */,
 				CB2153EA1E1CDA2C006BAC1B /* YYLHomeCollectionViewCell.swift in Sources */,
 				CB9F07AA1E26114A001B0E48 /* LLViewExtensions.swift in Sources */,
@@ -733,13 +902,16 @@
 				CB4611111E1DF57300603C27 /* YYLHomeClassfiyViewController.swift in Sources */,
 				CBE0BEBA1E24D13B007D0307 /* FilledPageControl.swift in Sources */,
 				CBE0BEBD1E24D13B007D0307 /* SnakePageControl.swift in Sources */,
+				CB2995241E3094550028112B /* YYLHistoryViewController.swift in Sources */,
 				CBE0BEBC1E24D13B007D0307 /* ScrollingPageControl.swift in Sources */,
 				CB9F07A71E26114A001B0E48 /* LLFilledPageControl.swift in Sources */,
 				CB9877EE1E1B8293009A6F2D /* YYLVideoViewController.swift in Sources */,
 				CB9F07A91E26114A001B0E48 /* LLSnakePageControl.swift in Sources */,
+				CB9252961E4D8DEA009562CD /* YYLLivingHeadView.swift in Sources */,
 				CB9F07AF1E26210A001B0E48 /* YYLPageCountView.swift in Sources */,
 				CB46110F1E1DE00F00603C27 /* UIView+Positioning.swift in Sources */,
 				CBE0BEB11E24CB82007D0307 /* YYLClassifyHeadView.swift in Sources */,
+				CBE811B21E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift in Sources */,
 				CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */,
 				CBE0BEAF1E24CB60007D0307 /* YYLRecommedHeadView.swift in Sources */,
 			);

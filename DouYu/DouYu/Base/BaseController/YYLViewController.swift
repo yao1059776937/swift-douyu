@@ -8,21 +8,65 @@
 
 import UIKit
 
-class YYLViewController: UIViewController {
+protocol YYLViewControllerDelegate {
+    func YYLAlertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int)
+}
 
+class YYLViewController: UIViewController,UIAlertViewDelegate {
+
+    let YYLNavigation = YYLNavigationViewController()
+    
+  var YYLdelegate:YYLViewControllerDelegate?
+    
+  private let image = UIImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+//        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+5.0) {
+//            self.image.frame = CGRect(x:0 ,y:0,width:KScreenWith,height:KScreenHight)
+//            self.image.sd_setImage(with: URL.init(string: horrorImage))
+////            self.view.bringSubview(toFront: self.image)
+//            self.view.addSubview(self.image)
+//        }
+
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+       self.image.removeFromSuperview()
+    }
+    var backItem:Bool = false {
+        didSet {
+            if backItem == true {
+                let backButton = UIButton.init(type:.custom)
+                let image = UIImage(named:"return_write")
+                backButton.frame = CGRect(x:0,y:0,width:(image?.size.width)!,height:(image?.size.height)!)
+                backButton.addTarget(self, action:#selector(pop), for: UIControlEvents.touchUpInside)
+                backButton.setImage(UIImage(named:"return_write"), for: UIControlState.normal)
+                let backItem = UIBarButtonItem.init(customView: backButton)
+                self.navigationItem.leftBarButtonItem = backItem
+            }
+        }
+    }
+    @objc fileprivate func pop(){
+    self.navigationController?.popViewController(animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         //修改状态栏颜色
+
     UIApplication.shared .setStatusBarStyle(.lightContent, animated: true)
+
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
     }
-
+    open func YYLAlert(_ msg:String){
+        let alert = UIAlertView.init(title: "", message: msg, delegate: self, cancelButtonTitle: "取消")
+        alert.addButton(withTitle: "确定")
+        alert.show()
+    }
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
+        
+           YYLdelegate?.YYLAlertView(alertView, clickedButtonAt: buttonIndex)
+    }
 }
