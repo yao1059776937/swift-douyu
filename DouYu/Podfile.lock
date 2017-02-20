@@ -21,16 +21,33 @@ PODS:
   - ReactiveSwift (1.0.0-alpha.3):
     - Result (~> 3.0)
   - Result (3.0.0)
+  - RxCocoa (3.0.1):
+    - RxSwift (~> 3.0)
+  - RxSwift (3.0.1)
   - SDWebImage (4.0.0-beta2):
     - SDWebImage/Core (= 4.0.0-beta2)
   - SDWebImage/Core (4.0.0-beta2)
+  - TTReflect (2.0.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.1.0)
   - Masonry (~> 1.0.2)
   - MJRefresh (~> 3.1.12)
   - ReactiveCocoa (~> 5.0.0-alpha.3)
+  - RxCocoa (~> 3.0)
+  - RxSwift (~> 3.0)
   - SDWebImage (~> 4.0.0-beta2)
+  - TTReflect (from `https://github.com/TifaTsubasa/TTReflect.git`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  TTReflect:
+    :branch: swift3
+    :git: https://github.com/TifaTsubasa/TTReflect.git
+
+CHECKOUT OPTIONS:
+  TTReflect:
+    :commit: f47a7b039716d4ccff4bc57e653ff2c5832e2a5f
+    :git: https://github.com/TifaTsubasa/TTReflect.git
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
@@ -39,8 +56,11 @@ SPEC CHECKSUMS:
   ReactiveCocoa: d8a03d3deae0dd76410a30589946328d76ab9d2b
   ReactiveSwift: d67b677f9574ba614d94022a88fcf456e77fa515
   Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
+  RxCocoa: 15a52fc590dcc700cb4a690a633b5c5184ce3a78
+  RxSwift: af5680055c4ad04480189c52d28385b1029493a6
   SDWebImage: e379f33106cf8d6766f970c0ef1c3fb609c94d78
+  TTReflect: 89a332f4b9908bb8a97dd5ce48185da7d76e4d58
 
-PODFILE CHECKSUM: 825f42a19992792b841c7b49d44fa68553bf83ac
+PODFILE CHECKSUM: bca173d9cc0ddf24d54f1ad3f8c9268225b27132
 
 COCOAPODS: 1.2.0.beta.1

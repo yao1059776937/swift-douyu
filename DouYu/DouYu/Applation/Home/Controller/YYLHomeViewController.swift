@@ -90,9 +90,11 @@ var pageMenu : CAPSPageMenu?
     override func viewWillAppear(_ animated: Bool) {
         if self.navigationController?.navigationBar.isHidden == true{
 //            self.navigationController?.navigationBar.y = 20
-//            self.view.y = 20
-            self.navigationController?.navigationBar.y = 20
-            UIApplication.shared .setStatusBarStyle(.lightContent, animated: true)
+            self.view.y = 20
+//            self.pageMenu?.changeY = 20
+//            self.pageMenu?.changeHeight = 38.0
+            self.YYLNavigation.navigationBar.y = -52
+            UIApplication.shared .setStatusBarStyle(.default, animated: true)
             self.navigationController?.navigationBar.isHidden = false
         }
 

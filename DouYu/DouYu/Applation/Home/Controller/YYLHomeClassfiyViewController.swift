@@ -59,10 +59,11 @@ class YYLHomeClassfiyViewController: YYLViewController,UICollectionViewDelegate,
     }
     override func viewWillAppear(_ animated: Bool) {
         if (self.navigationController?.navigationBar.isHidden)! {
-            self.hiddleNavBlock!()
+//            self.hiddleNavBlock!()
+//            self.collect.y = 0
             self.collect.height = KScreenHight - 49 - 12-45
         }else{
-         self.collect.height = KScreenHight - 49 - 64-45
+         self.collect.height = KScreenHight - 49 - 64-38
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -115,7 +116,7 @@ class YYLHomeClassfiyViewController: YYLViewController,UICollectionViewDelegate,
                 self.navigationController?.tabBarController?.selectedIndex = 1
 //                let more = YYLLivingClassfiyViewController()
 //                more.NavTitle = "英雄联盟"
-//                self.navigationController?.pushViewController(more, animated: true)
+//                self.navig      ationController?.pushViewController(more, animated: true)
             }
             headView.addSubview(contentView)
             headView.addSubview(self.customHeadView)
@@ -159,7 +160,7 @@ class YYLHomeClassfiyViewController: YYLViewController,UICollectionViewDelegate,
     //赖加载collect
     private lazy var collect: YYLCollectionView = {
         
-        let collect = YYLCollectionView.init(frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight - 49 - 64-50), collectionViewLayout: self.layout111)
+        let collect = YYLCollectionView.init(frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight - 49 - 64-38), collectionViewLayout: self.layout111)
         collect.bounces = true
         collect.register(YYLHomeCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "recomment")
         collect.register(UICollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "head")

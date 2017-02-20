@@ -13,6 +13,8 @@ class YYLLivingHeadView: UIView {
 
      var perButton=UIButton()
 
+    //创建标签button
+    private var lineButton=UIButton()
     
     var clickTagButton:(()->())?
     
@@ -90,30 +92,37 @@ class YYLLivingHeadView: UIView {
             }
             for i in 0...tagTitleArray.count-1 {
                 
+                let stringWidth:String = tagTitleArray[i] as! String
+                let rect:CGRect = getTextRectSize(text: stringWidth, font:TextEleven, size: CGSize(width:KScreenWith,height:KScreenHight))
+                
                 let button = UIButton.init(type: .custom)
                 button.setTitle(tagTitleArray[i] as? String, for: UIControlState.normal)
-                button.frame = CGRect(x:10.0+(70.0+15.0)*CGFloat(i) ,y:(self.height - 25.0)/2.0,width:70.0,height:25.0)
+
                 button.addTarget(self, action: #selector(clickTag(_:)), for:UIControlEvents.touchUpInside)
                 button.layer.cornerRadius = 10
                 button.tag = 1000+i
                 button.titleLabel?.font = TextEleven
                 if i==0 {
+                    button.frame = CGRect(x:10.0,y:10.0,width:rect.width+30,height:25.0)
                     button.setTitleColor(RGB(235, 97, 7), for: UIControlState.normal)
                     button.layer.borderColor = RGB(235, 97, 7).cgColor
+                    self.lineButton = button
                     perButton = button
                 }else{
+                    button.frame = CGRect(x:self.lineButton.rightX+10,y:self.lineButton.y,width:rect.width+30,height:25.0)
                     button.setTitleColor(UIColor.init(hexString: "a1a1a1"), for: UIControlState.normal)
                     button.layer.borderColor = UIColor.init(hexString: "aaaaaa")?.cgColor
                 }
                 button.layer.borderWidth = 1.0
                 self.scroller.addSubview(button)
+                self.lineButton = button
             }
             self.scroller.contentSize=CGSize(width:10+(70+15)*tagTitleArray.count,height:30)
         }
     }
     //MARK:点击标签
     @objc func clickTag(_ button:UIButton){
-        if button.tag-1000 == 0 {
+        if button.tag-1000 == 0 || self.lineButton.rightX+10 <= (KScreenWith-30){
             UIView.animate(withDuration: 0.5) {
                 self.scroller.contentOffset = CGPoint(x:0,y:0)
             }

@@ -9,6 +9,9 @@
 import UIKit
 import Masonry
 import SDWebImage
+import RxSwift
+import RxCocoa
+
 //let weakSelf = __weak typeof(self) weakSelf
 let  KScreenWith = UIScreen .main.bounds.size.width
 let  KScreenHight = UIScreen.main.bounds.size.height

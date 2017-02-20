@@ -28,6 +28,9 @@ class YYLLivingClassfiyViewController: YYLViewController,UICollectionViewDelegat
         self.navigationController?.navigationBar.isHidden = false
         self.tabBarController?.tabBar.isHidden = true
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     override func viewWillDisappear(_ animated: Bool) {
           self.tabBarController?.tabBar.isHidden = false
     }
@@ -83,6 +86,7 @@ class YYLLivingClassfiyViewController: YYLViewController,UICollectionViewDelegat
         weakself?.view.bringSubview(toFront:(weakself?.AllTagView)!)
     }
           headView.tagTitleArray =  ["全部","妹纸主播","荣耀上单","野区霸主","全部","中路杀神","最强AD","神级辅助","赛事直播"]
+//              headView.tagTitleArray =  ["全部","妹纸主播","野区霸主","全部","中路杀神"]
          headView.imageTitle = "three_column_view_open"
         return headView
     }()
@@ -93,6 +97,7 @@ class YYLLivingClassfiyViewController: YYLViewController,UICollectionViewDelegat
             weakself?.headView.perSelete = select
         }
          AllTagView.showArray = ["全部","妹纸主播","荣耀上单","野区霸主","全部","中路杀神","最强AD","神级辅助","赛事直播"]
+//                 AllTagView.showArray = ["全部","妹纸主播","野区霸主","全部","中路杀神"]
         self.view.addSubview(AllTagView)
         return AllTagView
     }()

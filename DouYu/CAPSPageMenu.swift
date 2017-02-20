@@ -162,10 +162,10 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     :param: options Dictionary holding any customization options user might want to set
     */
     public init(viewControllers: [UIViewController], frame: CGRect, options: [String: AnyObject]?) {
-        
+        self.changeY = 0.0
+        self.changeHeight = 0.0
         super.init(nibName: nil, bundle: nil)
         controllerArray = viewControllers
-        
         self.view.frame = frame
     }
 
@@ -239,6 +239,8 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
     }
     
     required public init?(coder aDecoder: NSCoder) {
+        self.changeY = 0.0
+        self.changeHeight = 0.0
         super.init(coder: aDecoder)
     }
 	// MARK: - Container View Controller
@@ -428,7 +430,7 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
                     menuItemView.menuItemSeparator!.isHidden = false
                 }
             }
-            
+
             // Add menu item view to menu scroll view
             menuScrollView.addSubview(menuItemView)
             menuItems.append(menuItemView)
@@ -533,7 +535,17 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         return leadingAndTrailingMargin
     }
     
-    
+        // MARK: SETTER changeY
+    var changeY: CGFloat {
+        didSet {
+            self.view.y = changeY
+        }
+    }
+    var changeHeight: CGFloat {
+        didSet {
+            self.view.height = changeHeight
+        }
+    }
     // MARK: - Scroll view delegate
     
     open func scrollViewDidScroll(_ scrollView: UIScrollView) {
