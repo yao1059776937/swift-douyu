@@ -10,6 +10,9 @@ import UIKit
 
 class YYLCommentCollectionViewCell: UICollectionViewCell {
     
+
+//    var limitCount:NSInteger = 2
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = UIColor.white
@@ -18,6 +21,25 @@ class YYLCommentCollectionViewCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    //MARK:SETTER
+        //显示的个数 默认显示2个
+    var limitCount: NSInteger=2 {
+        didSet {
+            
+        }
+    }
+    var picUrl: String = ""{
+        didSet {
+            self.gameCoverImage.sd_setImage(with: URL(string:picCover+picUrl), placeholderImage: UIImage.init(named: "默认banner图"))
+        }
+    }
+    var Name: String = ""{
+        didSet {
+          self.gameName.text = Name
+        }
+    }
+    
+    
     func ConfigUI(){
 
         self.gameCoverImage.mas_makeConstraints { (make) in
@@ -32,7 +54,7 @@ class YYLCommentCollectionViewCell: UICollectionViewCell {
         }
         //右边线条和下边线条
         let rightView = UIView()
-        rightView.backgroundColor = UIColor.init(hexString: "aaaaaa")
+        rightView.backgroundColor = UIColor.init(hexString: "cccccc")
         self.contentView.addSubview(rightView)
         
         rightView.mas_makeConstraints { (make) in
@@ -41,7 +63,7 @@ class YYLCommentCollectionViewCell: UICollectionViewCell {
         }
         
         let bottomView = UIView()
-        bottomView.backgroundColor = UIColor.init(hexString: "aaaaaa")
+        bottomView.backgroundColor = UIColor.init(hexString: "cccccc")
         self.contentView.addSubview(bottomView)
         
         bottomView.mas_makeConstraints { (make) in
@@ -52,7 +74,7 @@ class YYLCommentCollectionViewCell: UICollectionViewCell {
     }
     lazy var gameCoverImage: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named:"默认banner图")
+//        image.image = UIImage(named:"默认banner图")
         image.layer.cornerRadius = 20.0
         image.layer.masksToBounds = true
         self.contentView.addSubview(image)
@@ -60,7 +82,7 @@ class YYLCommentCollectionViewCell: UICollectionViewCell {
     }()
     lazy var gameName: UILabel = {
         let gameName = UILabel()
-        gameName.text = "英雄联盟"
+//        gameName.text = "英雄联盟"
         gameName.font = TextTwelveFont
         gameName.textAlignment = NSTextAlignment.center
         gameName.textColor = UIColor.black

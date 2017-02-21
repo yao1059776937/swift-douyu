@@ -48,8 +48,8 @@ class YYLHttpRequest: AFHTTPSessionManager {
     }
     
     // 将成功和失败的回调分别写在两个逃逸闭包中
-    func request(requestType : YYLRequestType, url : String, parameters : [String : Any], succeed : @escaping([String : Any]?) -> (), failure : @escaping(Error?) -> ()) {
-        
+    func request(requestType : YYLRequestType,method:String, parameters : [String : Any], succeed : @escaping([String : Any]?) -> (), failure : @escaping(Error?) -> ()) {
+       let url = UnifyUrl+method
         // 成功闭包
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
             succeed(responseObj as? [String : Any])

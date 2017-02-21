@@ -11,24 +11,57 @@ import RxCocoa
 import RxSwift
 import TTReflect
 
+
 class YYLLivingViewController: YYLViewController,MenuViewDelegate {
 
     private var MenuView : YYLMenuView?
     private var MenuController : YYLMenuScrollerView?
+    //存储模型的数组
+    private var LivingTitleTagArray : NSMutableArray = ["常用","全部"]
+    private var isRequest = false
     private var controllerArray:[UIViewController]  = []
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        let par = ["client_sys":"ios"]
-        
-        self.columListModel.getColumnList(parameters:par)
+
+        let par = [client_sys:iosPlatform]
+        self.columListModel.getColumnList(method:GetColumnList,parameters:par)
+
     }
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
+        
+         }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
     }
     func menuSeleteIndex(_ seleteIndex: NSInteger) {
+       
+        if seleteIndex != 0 {
+            let controller = self.controllerArray[seleteIndex] as! YYLPublicViewController
+            if seleteIndex == 1{
+                let par = [limitPage:KlimitData,client_sys:iosPlatform,offsetPage:"0"]
+                controller.liveMethod = par
+            }else{
+                if  seleteIndex == self.controllerArray.count - 1 {
+                    let par = [limitPage:KlimitData,client_sys:iosPlatform,offsetPage:"0"]
+                       controller.QieMethod = par
+                }else{
+                let titleTag : YYLLivingTitleTagModel = self.LivingTitleTagArray[seleteIndex-2] as! YYLLivingTitleTagModel
+                let par = ["selectIndex":titleTag.cate_id,limitPage:KlimitData,client_sys:iosPlatform,offsetPage:"0"]
+                controller.roomMethod = par
+                }
+            }
+        }
         UIView.animate(withDuration: 0.5) {
-
+//            if self.isRequest == false {
+//                let controller = self.controllerArray[seleteIndex]
+//                if NSStringFromClass((controller.classForCoder)).isEqual(NSStringFromClass((YYLPublicViewController.classForCoder()))){
+//                    let controller2:YYLPublicViewController = controller as! YYLPublicViewController
+//                    controller2.roomMethod =
+//                }
+//            }
         self.MenuController?.Scroller.contentOffset = CGPoint(x:CGFloat(seleteIndex)*KScreenWith,y:0)
         }
     }
@@ -43,6 +76,7 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
         }
     }
     func slideIndex(_ seleteIndex: NSInteger) {
+
         let  button = self.MenuView?.viewWithTag(seleteIndex+1000)
         self.MenuView?.clickTag(button as! UIButton)
     }
@@ -90,16 +124,20 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
     
     lazy var columListModel: YYLLivingViewModel = {
         let columListModel = YYLLivingViewModel()
+        weak var weakself = self
         columListModel.columSuccess = { (response) in Void()
+            weakself?.LivingTitleTagArray.removeAllObjects()
             var titles:NSMutableArray = ["常用","全部"]
             for dic in response{
                 let tag = Reflect<YYLLivingTitleTagModel>.mapObject(json:dic as AnyObject?)
                 titles.add(tag.cate_name)
+                weakself?.LivingTitleTagArray.add(tag)
             }
+            titles.add("体育频道")
             self.loadData(titles)
         }
         columListModel.columFail = { (error) in Void()
-        
+         weakself?.loadAnimationFail()
         }
         return columListModel
     }()

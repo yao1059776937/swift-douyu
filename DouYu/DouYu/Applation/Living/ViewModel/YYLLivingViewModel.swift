@@ -12,23 +12,18 @@ import RxSwift
 
 class YYLLivingViewModel: NSObject {
 
-
-//    var columSuccess:(([String : Any]?)->())?
+    //获取导航栏上标题请求结果
         var columSuccess:((NSArray)->())?
-    var columFail:((Error)->())?
-    
-//    let observable = { (columnListResult: NSArray) -> Observable<NSArray> in
-//        return Observable.create { observer in
-//            observer.on(.next(columnListResult))
-//            observer.on(.completed)
-//            //            return NopDisposable.instance
-//            return Disposable.self as! Disposable
-//        }
-//    }
-    
-    
-    func getColumnList(parameters : [String : Any]){
-        YYLHttpRequest.shareInstance.request(requestType: .Get, url: "https://capi.douyucdn.cn/api/v1/getColumnList", parameters: parameters, succeed: { (response) in
+        var columFail:((Error)->())?
+    //获取导航栏上第一个标题"常用"详情结果
+        var columDetailSuccess:((NSArray)->())?
+        var columDetailFail:((Error)->())?
+    //获取导航栏上其他标题详情结果
+        var columAllSuccess:((NSArray)->())?
+        var columAllFail:((Error)->())?
+   //获取导航栏标题请求
+    func getColumnList(method:String,parameters : [String : Any]){
+        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
             if self.columSuccess != nil{
             self.columSuccess!(response?["data"] as! NSArray)
             }
@@ -38,14 +33,28 @@ class YYLLivingViewModel: NSObject {
             }
         }
     }
-//    public var rx_text: Observable<String> {
-//        return defer { [weak self] in
-//            let text = self?.text ?? ""
-//            
-//            return self?.rx_delegate.observe("searchBar:textDidChange:") ?? empty()
-//                .map { a in // a 包含了searchbar:textDidChange:的参数，第一个是Searchbar,第二个是值
-//                    return a[1] as? String ?? ""
-//                }
-//                .startWith(text)
-//        }
+    //获取导航栏上第一个标题"常用"详情
+    func getColumnDetail(method:String,parameters : [String : Any]){
+        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
+            if self.columDetailSuccess != nil{
+                self.columDetailSuccess!(response?["data"] as! NSArray)
+            }
+        }) { (error) in
+            if self.columDetailFail != nil{
+                self.columDetailFail!(error!)
+            }
+        }
+    }
+    //获取导航栏上其他标题详情
+    func getColumnAll(method:String,parameters : [String : Any]){
+        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
+            if self.columAllSuccess != nil{
+                self.columAllSuccess!(response?["data"] as! NSArray)
+            }
+        }) { (error) in
+            if self.columAllFail != nil{
+                self.columAllFail!(error!)
+            }
+        }
+    }
 }

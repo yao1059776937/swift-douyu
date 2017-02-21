@@ -10,6 +10,8 @@
 		249DB423A9B0E0F2D33849DC /* Pods_DouYu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B680077163788C423E4C984F /* Pods_DouYu.framework */; };
 		CB0418D01E5AB5A7005D544A /* YYLPublicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0418CF1E5AB5A7005D544A /* YYLPublicViewController.swift */; };
 		CB0418D21E5AB610005D544A /* UIView+Positioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0418D11E5AB610005D544A /* UIView+Positioning.swift */; };
+		CB0418D41E5ABDE9005D544A /* YYLLivingColumnDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0418D31E5ABDE9005D544A /* YYLLivingColumnDetailModel.swift */; };
+		CB0418DB1E5AD519005D544A /* YYLLivingCoverModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB0418DA1E5AD519005D544A /* YYLLivingCoverModel.swift */; };
 		CB11B2511E5694FE00B4CCD7 /* ipa in Resources */ = {isa = PBXBuildFile; fileRef = CB11B2501E5694FE00B4CCD7 /* ipa */; };
 		CB11B2531E56968700B4CCD7 /* YYLLivingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11B2521E56968700B4CCD7 /* YYLLivingViewModel.swift */; };
 		CB11B2561E569BB600B4CCD7 /* YYLHttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB11B2551E569BB600B4CCD7 /* YYLHttpRequest.swift */; };
@@ -20,6 +22,7 @@
 		CB2995241E3094550028112B /* YYLHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2995201E3094550028112B /* YYLHistoryViewController.swift */; };
 		CB39B5DB1E56CC95008E7368 /* YYLLivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB39B5DA1E56CC95008E7368 /* YYLLivingViewController.swift */; };
 		CB4611111E1DF57300603C27 /* YYLHomeClassfiyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4611101E1DF57300603C27 /* YYLHomeClassfiyViewController.swift */; };
+		CB6D255C1E5C174E00A3E698 /* YYLLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB6D255B1E5C174E00A3E698 /* YYLLoadingView.swift */; };
 		CB9252961E4D8DEA009562CD /* YYLLivingHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9252951E4D8DEA009562CD /* YYLLivingHeadView.swift */; };
 		CB9252981E4DAB1A009562CD /* YYLShowAllHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9252971E4DAB1A009562CD /* YYLShowAllHeadView.swift */; };
 		CB9310B31E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB9310B21E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift */; };
@@ -87,6 +90,8 @@
 		B680077163788C423E4C984F /* Pods_DouYu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DouYu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB0418CF1E5AB5A7005D544A /* YYLPublicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLPublicViewController.swift; sourceTree = "<group>"; };
 		CB0418D11E5AB610005D544A /* UIView+Positioning.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Positioning.swift"; sourceTree = "<group>"; };
+		CB0418D31E5ABDE9005D544A /* YYLLivingColumnDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingColumnDetailModel.swift; sourceTree = "<group>"; };
+		CB0418DA1E5AD519005D544A /* YYLLivingCoverModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingCoverModel.swift; sourceTree = "<group>"; };
 		CB11B2501E5694FE00B4CCD7 /* ipa */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ipa; path = DouYu/ipa; sourceTree = "<group>"; };
 		CB11B2521E56968700B4CCD7 /* YYLLivingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingViewModel.swift; sourceTree = "<group>"; };
 		CB11B2551E569BB600B4CCD7 /* YYLHttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHttpRequest.swift; sourceTree = "<group>"; };
@@ -97,6 +102,7 @@
 		CB2995201E3094550028112B /* YYLHistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHistoryViewController.swift; sourceTree = "<group>"; };
 		CB39B5DA1E56CC95008E7368 /* YYLLivingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingViewController.swift; sourceTree = "<group>"; };
 		CB4611101E1DF57300603C27 /* YYLHomeClassfiyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHomeClassfiyViewController.swift; sourceTree = "<group>"; };
+		CB6D255B1E5C174E00A3E698 /* YYLLoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLoadingView.swift; sourceTree = "<group>"; };
 		CB9252951E4D8DEA009562CD /* YYLLivingHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLLivingHeadView.swift; sourceTree = "<group>"; };
 		CB9252971E4DAB1A009562CD /* YYLShowAllHeadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLShowAllHeadView.swift; sourceTree = "<group>"; };
 		CB9310B21E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYLHistorySubViewsViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +195,47 @@
 				B680077163788C423E4C984F /* Pods_DouYu.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CB0418D51E5AD4FC005D544A /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				CB0418D61E5AD4FC005D544A /* Controller */,
+				CB0418D71E5AD4FC005D544A /* Model */,
+				CB0418D81E5AD4FC005D544A /* View */,
+				CB0418D91E5AD4FC005D544A /* ViewModel */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		CB0418D61E5AD4FC005D544A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		CB0418D71E5AD4FC005D544A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CB0418DA1E5AD519005D544A /* YYLLivingCoverModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CB0418D81E5AD4FC005D544A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CB6D255B1E5C174E00A3E698 /* YYLLoadingView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CB0418D91E5AD4FC005D544A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CB11B2541E569B9700B4CCD7 /* AFNetworkingRequest */ = {
@@ -310,6 +357,7 @@
 		CB9877C51E1B7F2D009A6F2D /* Applation */ = {
 			isa = PBXGroup;
 			children = (
+				CB0418D51E5AD4FC005D544A /* Public */,
 				CB9CBE081E3732C500783974 /* LivingClassfiyDetail */,
 				CB29951E1E3094550028112B /* WatchHistory */,
 				CB9877D51E1B7F2D009A6F2D /* Mine */,
@@ -431,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				CB15BF9F1E55A40A005C838B /* YYLLivingTitleTagModel.swift */,
+				CB0418D31E5ABDE9005D544A /* YYLLivingColumnDetailModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -915,6 +964,7 @@
 				CBD2B6AF1E31AED600B17E76 /* YYLMenuTableViewCell.swift in Sources */,
 				CBC561FF1E545C9F00ED9DA8 /* YYLCommentViewController.swift in Sources */,
 				CBC562011E545D3700ED9DA8 /* YYLCommentCollectionViewCell.swift in Sources */,
+				CB0418D41E5ABDE9005D544A /* YYLLivingColumnDetailModel.swift in Sources */,
 				CB9310B31E35DB7B00CC5D6F /* YYLHistorySubViewsViewController.swift in Sources */,
 				CB9877EA1E1B8264009A6F2D /* YYLMineViewController.swift in Sources */,
 				CBB326961E2DB14D00DCECD4 /* YYLCustomCycleView.swift in Sources */,
@@ -949,8 +999,10 @@
 				CB9F07A91E26114A001B0E48 /* LLSnakePageControl.swift in Sources */,
 				CB9252961E4D8DEA009562CD /* YYLLivingHeadView.swift in Sources */,
 				CB9F07AF1E26210A001B0E48 /* YYLPageCountView.swift in Sources */,
+				CB0418DB1E5AD519005D544A /* YYLLivingCoverModel.swift in Sources */,
 				CBE0BEB11E24CB82007D0307 /* YYLClassifyHeadView.swift in Sources */,
 				CB0418D01E5AB5A7005D544A /* YYLPublicViewController.swift in Sources */,
+				CB6D255C1E5C174E00A3E698 /* YYLLoadingView.swift in Sources */,
 				CBE811B21E2C60C100738F66 /* YYLClassifyCollectionViewCell.swift in Sources */,
 				CB9877F61E1B9EB1009A6F2D /* DouYuTV.swift in Sources */,
 				CBE0BEAF1E24CB60007D0307 /* YYLRecommedHeadView.swift in Sources */,

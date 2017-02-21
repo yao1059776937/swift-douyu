@@ -11,10 +11,32 @@ import Masonry
 import SDWebImage
 import RxSwift
 import RxCocoa
+import TTReflect
 
 //let weakSelf = __weak typeof(self) weakSelf
 let  KScreenWith = UIScreen .main.bounds.size.width
 let  KScreenHight = UIScreen.main.bounds.size.height
+
+//请求前面的统一参数
+let UnifyUrl = "https://capi.douyucdn.cn/api/v1/"
+let picCover = "https://staticlive.douyucdn.cn/upload/game_cate/" //封面图片统一参数
+//请求method
+let GetColumnList = "getColumnList"
+let GetColumnDetail = "getColumnDetail"
+let GetColumnRoom = "getColumnRoom"
+let Live = "live"
+let Qie = "qie"
+
+//普通参数
+let client_sys = "client_sys"
+let iosPlatform = "ios"
+//翻页参数
+let offsetPage = "offset"
+
+//每次请求获取的数据条数
+//key
+let limitPage = "limit"
+let KlimitData = "20"
 
 //获取当前系统版本
 let _ios8_0_  = ((UIDevice.current.systemVersion as NSString).floatValue >= 8.0)

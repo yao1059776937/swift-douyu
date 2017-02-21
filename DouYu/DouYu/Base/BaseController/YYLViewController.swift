@@ -22,6 +22,7 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.addSubview(self.loading)
 //        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+5.0) {
 //            self.image.frame = CGRect(x:0 ,y:0,width:KScreenWith,height:KScreenHight)
 //            self.image.sd_setImage(with: URL.init(string: horrorImage))
@@ -32,6 +33,17 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        self.image.removeFromSuperview()
+    }
+    func loadAnimationStart(){
+        self.view.bringSubview(toFront: self.loading)
+        self.loading.star()
+    }
+    func loadAnimationStop(){
+        self.loading.stop()
+    }
+    func loadAnimationFail(){
+        self.loading.loadFail()
+        self.view.bringSubview(toFront: self.loading)
     }
     var backItem:Bool = false {
         didSet {
@@ -50,15 +62,15 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
     self.navigationController?.popViewController(animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
+//        YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
         super.viewWillAppear(animated)
         //修改状态栏颜色
-
-    UIApplication.shared .setStatusBarStyle(.lightContent, animated: true)
+      UIApplication.shared .setStatusBarStyle(.lightContent, animated: true)
 
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
+    
     }
     open func YYLAlert(_ msg:String){
         let alert = UIAlertView.init(title: "", message: msg, delegate: self, cancelButtonTitle: "取消")
@@ -69,4 +81,12 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
         
            YYLdelegate?.YYLAlertView(alertView, clickedButtonAt: buttonIndex)
     }
+  
+    lazy var loading: YYLLoadingView = {
+        let loading = YYLLoadingView()
+        loading.frame = CGRect(x:0 ,y:0,width:KScreenWith,height:KScreenHight)
+        return loading
+    }()
+  
+    
 }

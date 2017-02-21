@@ -16,7 +16,81 @@ var pageMenu : CAPSPageMenu?
 
     override func viewDidLoad() {
       super.viewDidLoad()
-      customNav()
+//      customNav()
+//        self.view.backgroundColor = UIColor.white
+//        var controllerArray:[UIViewController]  = []
+//        
+//        let controller1:YYLHomeClassfiyViewController = YYLHomeClassfiyViewController()
+//        // 网络图，本地图混合
+//        let imagesURLStrings = [
+//            "默认banner图",
+//            "https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9aa9d217464a20a425133495f13bf347/8cb1cb134954092304ebe97b9b58d109b3de4931.jpg",
+//            "https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9aa9d217464a20a425133495f13bf347/8cb1cb134954092304ebe97b9b58d109b3de4931.jpg",
+//            "https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9aa9d217464a20a425133495f13bf347/8cb1cb134954092304ebe97b9b58d109b3de4931.jpg",
+//            "https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9aa9d217464a20a425133495f13bf347/8cb1cb134954092304ebe97b9b58d109b3de4931.jpg",
+//            //            "默认banner图",
+//        ];
+//        
+//        let bannerDemo = YYLCustomCycleView.init(frame: CGRect(x:0 ,y:0,width:KScreenWith,height:180), imagesURLStrings as NSArray)
+//        bannerDemo.autoScrollTimeInterval = 3.0
+//        
+//        controller1.title = "推荐"
+//        self.NavAnimation(controller1)
+//        controller1.customHeadView = bannerDemo
+//        controllerArray.append(controller1)
+//        
+//        let controller2:YYLHomeClassfiyViewController = YYLHomeClassfiyViewController()
+//        
+//        controller2.title = "手游"
+//        self.NavAnimation(controller2)
+//        controller2.customHeadView = customHeadView()
+//        controllerArray.append(controller2)
+//        
+//        let controller3:YYLHomeClassfiyViewController = YYLHomeClassfiyViewController()
+//        
+//        controller3.title = "娱乐"
+//        self.NavAnimation(controller3)
+//        controller3.customHeadView = customHeadView()
+//        controllerArray.append(controller3)
+//        
+//        let controller4:YYLHomeClassfiyViewController = YYLHomeClassfiyViewController()
+//        controller4.title = "游戏"
+//        self.NavAnimation(controller4)
+//        controller4.customHeadView = customHeadView()
+//        controllerArray.append(controller4)
+//        
+//        let controller5:YYLHomeClassfiyViewController = YYLHomeClassfiyViewController()
+//        
+//        controller5.title = "趣玩"
+//        self.NavAnimation(controller5)
+//        controller5.customHeadView = customHeadView()
+//        controllerArray.append(controller5)
+//        
+//        let parameters: [CAPSPageMenuOption] = [
+//            .scrollMenuBackgroundColor(RGB(255, 255, 255)),
+//            .viewBackgroundColor(RGB(255, 255, 255)),
+//            .selectedMenuItemLabelColor(RGB(253,97, 7)),
+//            .unselectedMenuItemLabelColor(RGB(0, 0, 0)),
+//            .selectionIndicatorColor(UIColor.orange),
+//            .menuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
+//            .menuHeight(38.0),
+//            .menuItemWidth(KScreenWith/5),
+////            .centerMenuItems(true),
+//            .useMenuLikeSegmentedControl(true),
+//            .menuItemSeparatorColor(RGB(255,255,255)),
+//            ]
+//        
+//        pageMenu = CAPSPageMenu.init(viewControllers: controllerArray, frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight), pageMenuOptions: parameters)
+////        pageMenu?.enableHorizontalBounce = true
+//        self.addChildViewController(pageMenu!)
+//        self.view.addSubview(pageMenu!.view)
+//        
+//        pageMenu!.didMove(toParentViewController: self)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
+        customNav()
         self.view.backgroundColor = UIColor.white
         var controllerArray:[UIViewController]  = []
         
@@ -75,19 +149,18 @@ var pageMenu : CAPSPageMenu?
             .menuItemFont(UIFont(name: "HelveticaNeue", size: 13.0)!),
             .menuHeight(38.0),
             .menuItemWidth(KScreenWith/5),
-//            .centerMenuItems(true),
+            //            .centerMenuItems(true),
             .useMenuLikeSegmentedControl(true),
             .menuItemSeparatorColor(RGB(255,255,255)),
             ]
         
         pageMenu = CAPSPageMenu.init(viewControllers: controllerArray, frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight), pageMenuOptions: parameters)
-//        pageMenu?.enableHorizontalBounce = true
+        //        pageMenu?.enableHorizontalBounce = true
         self.addChildViewController(pageMenu!)
         self.view.addSubview(pageMenu!.view)
         
         pageMenu!.didMove(toParentViewController: self)
-    }
-    override func viewWillAppear(_ animated: Bool) {
+        
         if self.navigationController?.navigationBar.isHidden == true{
 //            self.navigationController?.navigationBar.y = 20
             self.view.y = 20

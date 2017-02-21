@@ -8,9 +8,15 @@
 
 import UIKit
 import MJRefresh
+import TTReflect
 
 class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     var customHeadView = UIView()
+    //一行显示多少个
+    private var broadcast_limit:NSInteger = 2
+    
+    private var dataSouceArray:NSMutableArray = []
+    
     let layout111 = UICollectionViewFlowLayout()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,13 +26,8 @@ class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICol
             let image:UIImage = UIImage(named: "img_mj_stateRefreshing_0\(i)")!
             refreshImages.add(image)
         }
-        //                // 设置普通状态的动画图片
-        //                for (var i = 1; i<=3; i++) {
-        //                    var image: UIImage = UIImage(named: "dropdown_loading_0\(i)")! as UIImage
-        //                    idleImages.addObject(image)
-        //                }
-        
-        //                //定义动画刷新Header
+
+      //定义动画刷新Header
         let header:MJRefreshGifHeader = MJRefreshGifHeader(refreshingTarget: self, refreshingAction:#selector(refresh))
         header.stateLabel.isHidden = true
         header.lastUpdatedTimeLabel.isHidden = true
@@ -43,6 +44,9 @@ class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICol
         self.collect.mj_header = header
         self.view.addSubview(self.collect)
         
+        self.loadAnimationStart()
+        let par = [client_sys:iosPlatform]
+       self.columListModel.getColumnDetail(method:GetColumnDetail,parameters:par)
     }
 
     //MARK: --UICollectionDelegate
@@ -50,16 +54,21 @@ class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICol
         return 1;
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40;
+        return self.dataSouceArray.count;
+//             return 15;
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = self.collect.dequeueReusableCell(withReuseIdentifier: "CommentCell", for: indexPath)
+        let columDetail = self.dataSouceArray[indexPath.row] as! YYLLivingColumnDetailModel
+        
+        let cell = self.collect.dequeueReusableCell(withReuseIdentifier: "CommentCell", for: indexPath) as! YYLCommentCollectionViewCell
+        cell.picUrl = columDetail.icon_name
+        cell.Name = columDetail.tag_name
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width:KScreenWith/2,height:120)
+        return CGSize(width:KScreenWith/CGFloat(self.broadcast_limit),height:120)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
@@ -74,13 +83,31 @@ class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICol
     private lazy var collect: YYLCollectionView = {
         
         let collect = YYLCollectionView.init(frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight - 64-49), collectionViewLayout: self.layout111)
-        //        collect.bounces = true
         collect.register(YYLCommentCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "CommentCell")
-//        collect.register(UICollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "living")
         collect.backgroundColor = UIColor.init(hexString: "f7f7f7")
         collect.delegate = self
         collect.dataSource = self
         return collect
+    }()
+    lazy var columListModel: YYLLivingViewModel = {
+        let columListModel = YYLLivingViewModel()
+        weak var myself:YYLCommentViewController? = self
+        columListModel.columDetailSuccess = { (response) in Void()
+            myself?.loadAnimationStop()
+//            myself?.loadAnimationFail()
+            for dic in response{
+                if (myself?.dataSouceArray.count)! > 14{break}
+                let tag = Reflect<YYLLivingColumnDetailModel>.mapObject(json:dic as AnyObject?)
+                myself?.broadcast_limit = NSInteger(tag.broadcast_limit)!
+                myself?.dataSouceArray.add(tag)
+            }
+                    myself?.collect.reloadData()
+        }
+        columListModel.columDetailFail = { (error) in Void()
+//            myself?.loadAnimationStop()
+                    myself?.loadAnimationFail()
+        }
+        return columListModel
     }()
     func refresh(){
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {

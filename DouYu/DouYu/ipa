@@ -1,2 +1,24 @@
 直播: 导航栏上的标签标题
 https://capi.douyucdn.cn/api/v1/getColumnList?client_sys=ios
+直播:导航栏第一个 “常用”
+https://capi.douyucdn.cn/api/v1/getColumnDetail?client_sys=ios
+直播:导航栏第二个 “全部”
+https://capi.douyucdn.cn/api/v1/live?limit=20&client_sys=ios&offset=0
+直播:导航栏第一个 “体育频道”
+https://capi.douyucdn.cn/api/v1/qie?limit=20&client_sys=ios&offset=0
+直播:导航栏第三个个 “热门游戏”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/1?limit=20&client_sys=ios&offset=0
+直播:导航栏第四个 “移动游戏”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/9?limit=20&client_sys=ios&offset=0
+直播:导航栏第五个 “娱乐新天地”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/2?limit=20&client_sys=ios&offset=0
+直播:导航栏第六个 “颜值”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/8?limit=20&client_sys=ios&offset=0
+直播:导航栏第七个 “科技”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/3?limit=20&client_sys=ios&offset=0
+直播:导航栏第八个 “文娱课堂”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/11?limit=20&client_sys=ios&offset=0
+直播:导航栏第九个 “正能量”
+https://capi.douyucdn.cn/api/v1/getColumnRoom/13?limit=20&client_sys=ios&offset=0
+直播:导航栏第十个 “体育频道”
+https://capi.douyucdn.cn/api/v1/qie?limit=20&client_sys=ios&offset=0
