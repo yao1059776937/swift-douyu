@@ -109,6 +109,11 @@ class YYLCommentViewController: YYLViewController,UICollectionViewDelegate,UICol
         }
         return columListModel
     }()
+    override func loadReData() {
+        self.loadAnimationStart()
+        let par = [client_sys:iosPlatform]
+     self.columListModel.getColumnDetail(method:GetColumnDetail,parameters:par)
+    }
     func refresh(){
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now()+2.0) {
             self.collect.mj_header.endRefreshing()

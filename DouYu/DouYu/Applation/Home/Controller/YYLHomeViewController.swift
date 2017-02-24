@@ -16,6 +16,7 @@ var pageMenu : CAPSPageMenu?
 
     override func viewDidLoad() {
       super.viewDidLoad()
+        
 //      customNav()
 //        self.view.backgroundColor = UIColor.white
 //        var controllerArray:[UIViewController]  = []

@@ -451,17 +451,17 @@ open class CAPSPageMenu: UIViewController, UIScrollViewDelegate, UIGestureRecogn
         }
         
         // Configure selection indicator view
-        var selectionIndicatorFrame : CGRect = CGRect()
+//        var selectionIndicatorFrame : CGRect = CGRect()
         
         if useMenuLikeSegmentedControl {
-            selectionIndicatorFrame = CGRect(x: 0.0, y: menuHeight - selectionIndicatorHeight, width: self.view.frame.width / CGFloat(controllerArray.count), height: selectionIndicatorHeight)
+//            selectionIndicatorFrame = CGRect(x: 0.0, y: menuHeight - selectionIndicatorHeight, width: self.view.frame.width / CGFloat(controllerArray.count), height: selectionIndicatorHeight)
         } else if menuItemWidthBasedOnTitleTextWidth {
-            selectionIndicatorFrame = CGRect(x: menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidths[0], height: selectionIndicatorHeight)
+//            selectionIndicatorFrame = CGRect(x: menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidths[0], height: selectionIndicatorHeight)
         } else {
             if centerMenuItems  {
-                selectionIndicatorFrame = CGRect(x: startingMenuMargin + menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidth, height: selectionIndicatorHeight)
+//                selectionIndicatorFrame = CGRect(x: startingMenuMargin + menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidth, height: selectionIndicatorHeight)
             } else {
-                selectionIndicatorFrame = CGRect(x: menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidth, height: selectionIndicatorHeight)
+//                selectionIndicatorFrame = CGRect(x: menuMargin, y: menuHeight - selectionIndicatorHeight, width: menuItemWidth, height: selectionIndicatorHeight)
             }
         }
         

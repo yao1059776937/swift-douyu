@@ -43,6 +43,7 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
     }
     func loadAnimationFail(){
         self.loading.loadFail()
+//        loadReData()
         self.view.bringSubview(toFront: self.loading)
     }
     var backItem:Bool = false {
@@ -59,7 +60,7 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
         }
     }
     @objc fileprivate func pop(){
-    self.navigationController?.popViewController(animated: true)
+    _ = self.navigationController?.popViewController(animated: true)
     }
     override func viewWillAppear(_ animated: Bool) {
 //        YYLNavigationViewController .setupNavigationBarByImage((self.navigationController?.navigationBar)!, "Img_orange", UIColor.white, TextFourTeenFont)
@@ -84,9 +85,15 @@ class YYLViewController: UIViewController,UIAlertViewDelegate {
   
     lazy var loading: YYLLoadingView = {
         let loading = YYLLoadingView()
+        weak var weakself = self
+        loading.loadReTry = {
+        weakself?.loadReData()
+        }
         loading.frame = CGRect(x:0 ,y:0,width:KScreenWith,height:KScreenHight)
         return loading
     }()
-  
-    
+    //点击重试 默认不做任何事情 当需要做一些事情时 继承重写相应的事情
+    func loadReData(){
+        
+    }
 }

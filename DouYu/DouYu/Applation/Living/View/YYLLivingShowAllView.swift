@@ -11,10 +11,14 @@ import UIKit
 class YYLLivingShowAllView: UIView,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     private var perButton=UIButton()
-    
+
+    //选中的回调
+    var selectBlock:((NSInteger)->())?
     //创建标签button 当屏幕放不下的时候 到时候自动换行
     private var lineButton=UIButton()
     
+    //防止复用cell总是选中
+    private var isReCell:Bool = false
     //    //判断是否是换行后的第一个标签
     //    private var isFistTag:Bool=false
     
@@ -44,16 +48,6 @@ class YYLLivingShowAllView: UIView,UICollectionViewDelegate,UICollectionViewData
             make?.left.right().mas_equalTo()(self)?.setOffset(0)
             make?.height.setOffset(39.9)
         }
-//        let lineView = UIView()
-//        lineView.frame = CGRect(x:0 ,y:self.headView.height - 0.5,width:KScreenWith,height:0.5)
-//        lineView.backgroundColor = UIColor.init(hexString: "bbbbbb")
-//        self.addSubview(lineView)
-//        
-//        lineView.mas_makeConstraints { (make) in
-//            make?.bottom.mas_equalTo()(self.showView.mas_bottom)?.setOffset(0)
-//            make?.left.right().mas_equalTo()(self)?.setOffset(0)
-//            make?.height.setOffset(0.5)
-//        }
         
 
     }
@@ -82,19 +76,49 @@ class YYLLivingShowAllView: UIView,UICollectionViewDelegate,UICollectionViewData
         return 1;
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 40;
+        return self.dataSouceArray.count+1;
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = self.collect.dequeueReusableCell(withReuseIdentifier: "CommentCell", for: indexPath)
+        let cell = self.collect.dequeueReusableCell(withReuseIdentifier: "CommentCell", for: indexPath) as!YYLCommentCollectionViewCell
+        cell.backgroundColor = UIColor.init(hexString: "f7f7f7")
+        if indexPath.row == self.seleteIndex && self.isReCell == false {
+            cell.isSelected = true
+        }
+        if indexPath.row == 0 {
+            cell.localPicUrl = "column_all_live"
+            cell.Name = "全部"
+        }else{
+        let columDetail = self.dataSouceArray[indexPath.row-1] as! YYLLivingColumnDetailModel
+        cell.picUrl = columDetail.icon_name
+        cell.Name = columDetail.tag_name
+        }
+        cell.rightLineImage = "column_vline"
+        cell.bottomLineImage = "column_hline"
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let index = IndexPath.init(row: self.seleteIndex, section: 0)
+        let cell = self.collect.cellForItem(at: index) as? YYLCommentCollectionViewCell
+        if  cell != nil {
+            if indexPath.row != self.seleteIndex {
+                self.isReCell = true
+                cell!.isSelected = false
+            }else{
+                cell!.isSelected = true
+            }
+        }else{
+            self.isReCell = true
+        }
+        if self.selectBlock != nil{
+        self.selectBlock!(indexPath.row)
+        }
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        return CGSize(width:KScreenWith/2,height:120)
+        return CGSize(width:KScreenWith/3,height:120)
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         
@@ -105,18 +129,28 @@ class YYLLivingShowAllView: UIView,UICollectionViewDelegate,UICollectionViewData
         return 0
     }
     //MARK: SETTER
-    var seleteIndex:NSInteger{
+    var seleteIndex:NSInteger = 0{
         didSet{
-            perButton.setTitleColor(UIColor.init(hexString: "a1a1a1"), for: UIControlState.normal)
-            perButton.layer.borderColor = UIColor.init(hexString: "aaaaaa")?.cgColor
-            
-            let button = self.viewWithTag(seleteIndex) as! UIButton
-            button.setTitleColor(RGB(235, 97, 7), for: UIControlState.normal)
-            button.layer.borderColor = RGB(235, 97, 7).cgColor
-            perButton = button
+//            perButton.setTitleColor(UIColor.init(hexString: "a1a1a1"), for: UIControlState.normal)
+//            perButton.layer.borderColor = UIColor.init(hexString: "aaaaaa")?.cgColor
+//            
+//            let button = self.viewWithTag(seleteIndex) as! UIButton
+//            button.setTitleColor(RGB(235, 97, 7), for: UIControlState.normal)
+//            button.layer.borderColor = RGB(235, 97, 7).cgColor
+//            perButton = button
+//            let indexPath = IndexPath.init(row: seleteIndex, section: 0)
+//            let cell = self.collect.cellForItem(at: indexPath) as! YYLCommentCollectionViewCell
+//            cell.isSelected = true
+            //重置状态
+              self.isReCell = false
         }
     }
-    
+    var dataSouceArray: NSArray = [] {
+        didSet {
+      self.collect.reloadData()
+            
+        }
+    }
 //    var showArray: NSArray {
 //        didSet {
     
@@ -165,8 +199,8 @@ class YYLLivingShowAllView: UIView,UICollectionViewDelegate,UICollectionViewData
             weakself?.isHidden = true
         }
         headView.backgroundColor = UIColor.init(hexString: "f7f7f7")
-        headView.tagTitleArray = ["aaaaa"]
-        headView.imageTitle = "three_column_view_close"
+        headView.tagTitleArray = ["筛选栏目"]
+        headView.imageTitle = "column_up_icon"
         self.addSubview(headView)
         return headView
     }()

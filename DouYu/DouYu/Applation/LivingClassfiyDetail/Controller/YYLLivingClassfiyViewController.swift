@@ -79,7 +79,6 @@ class YYLLivingClassfiyViewController: YYLViewController,UICollectionViewDelegat
     weak var weakself = self
     headView.clickTagButton = {
 
-        print(headView.perButton.tag)
      weakself?.AllTagView.seleteIndex = headView.perButton.tag-1000 + 1666
 //        weakself?.AllTagView.showArray = ["实力偶像","实力偶像","实力偶像","实力偶像","实力偶像","实力偶像","实力偶像","实力偶像","实力AD"]
         weakself?.AllTagView.isHidden = false

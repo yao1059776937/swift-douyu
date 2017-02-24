@@ -19,11 +19,11 @@ class YYLLivingViewModel: NSObject {
         var columDetailSuccess:((NSArray)->())?
         var columDetailFail:((Error)->())?
     //获取导航栏上其他标题详情结果
-        var columAllSuccess:((NSArray)->())?
-        var columAllFail:((Error)->())?
+        var columAllSuccess:((NSArray,String)->())?
+        var columAllFail:((Error,String)->())?
    //获取导航栏标题请求
     func getColumnList(method:String,parameters : [String : Any]){
-        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
+        YYLHttpRequest.shareInstance.request(requestType: .Get,method:method,identify: "columnlist", parameters: parameters, succeed: { (response,identify) in
             if self.columSuccess != nil{
             self.columSuccess!(response?["data"] as! NSArray)
             }
@@ -33,9 +33,10 @@ class YYLLivingViewModel: NSObject {
             }
         }
     }
+
     //获取导航栏上第一个标题"常用"详情
     func getColumnDetail(method:String,parameters : [String : Any]){
-        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
+        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, identify: "comment",parameters: parameters, succeed: { (response,identify) in
             if self.columDetailSuccess != nil{
                 self.columDetailSuccess!(response?["data"] as! NSArray)
             }
@@ -46,14 +47,21 @@ class YYLLivingViewModel: NSObject {
         }
     }
     //获取导航栏上其他标题详情
-    func getColumnAll(method:String,parameters : [String : Any]){
-        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, parameters: parameters, succeed: { (response) in
-            if self.columAllSuccess != nil{
-                self.columAllSuccess!(response?["data"] as! NSArray)
-            }
+    func getColumnAll(Semaphore:DispatchSemaphore,identify:String,method:String,parameters : [String : Any]){
+        YYLHttpRequest.shareInstance.request(requestType: .Get, method:method, identify:identify,parameters: parameters, succeed: { (response,identify) in
+            Semaphore.signal()
+//            if identify == "all"{
+//            if self.columAllSuccess != nil{
+//                self.columAllSuccess!(response?["data"] as! NSArray,identify!)
+//            }
+//            }
+//            if identify == "shortName"{
+               self.columAllSuccess!(response?["data"] as! NSArray,identify!)
+//            }
         }) { (error) in
             if self.columAllFail != nil{
-                self.columAllFail!(error!)
+                Semaphore.signal()
+                self.columAllFail!(error!,identify)
             }
         }
     }

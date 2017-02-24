@@ -23,17 +23,18 @@ class YYLHttpRequest: AFHTTPSessionManager {
         return toolInstance
     }()
     
+    var identify:String = ""
     // 将成功和失败的回调写在一个逃逸闭包中
-    func request(requestType : YYLRequestType, url : String, parameters : [String : Any], resultBlock : @escaping([String : Any]?, Error?) -> ()) {
+    func request(requestType : YYLRequestType, url : String,identify:String, parameters : [String : Any], resultBlock : @escaping([String : Any]?,String?,Error?) -> ()) {
         
         // 成功闭包
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
-            resultBlock(responseObj as? [String : Any], nil)
+            resultBlock(responseObj as? [String : Any], identify,nil)
         }
         
         // 失败的闭包
         let failureBlock = { (task: URLSessionDataTask?, error: Error) in
-            resultBlock(nil, error)
+            resultBlock(nil, identify,error)
         }
         
         // Get 请求
@@ -48,11 +49,11 @@ class YYLHttpRequest: AFHTTPSessionManager {
     }
     
     // 将成功和失败的回调分别写在两个逃逸闭包中
-    func request(requestType : YYLRequestType,method:String, parameters : [String : Any], succeed : @escaping([String : Any]?) -> (), failure : @escaping(Error?) -> ()) {
+    func request(requestType : YYLRequestType,method:String,identify:String,parameters : [String : Any], succeed : @escaping([String : Any]?,String?) -> (), failure : @escaping(Error?) -> ()) {
        let url = UnifyUrl+method
         // 成功闭包
         let successBlock = { (task: URLSessionDataTask, responseObj: Any?) in
-            succeed(responseObj as? [String : Any])
+            succeed(responseObj as? [String : Any],identify)
         }
         
         // 失败的闭包

@@ -22,3 +22,7 @@ https://capi.douyucdn.cn/api/v1/getColumnRoom/11?limit=20&client_sys=ios&offset=
 https://capi.douyucdn.cn/api/v1/getColumnRoom/13?limit=20&client_sys=ios&offset=0
 直播:导航栏第十个 “体育频道”
 https://capi.douyucdn.cn/api/v1/qie?limit=20&client_sys=ios&offset=0
+直播:短标题 通过参数shortName来区分
+https://capi.douyucdn.cn/api/v1/getColumnDetail?shortName=game&client_sys=ios
+直播:选中短标题 通过tag_id
+https://capi.douyucdn.cn/api/v1/live/2?limit=20&client_sys=ios&offset=0

@@ -14,20 +14,33 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
     
         var customHeadView = UIView()
         let layout111 = UICollectionViewFlowLayout()
-       private var dataSouceArray:NSMutableArray = []
+    //直播间数据
+        private var dataSouceArray:NSMutableArray = []
+    //短标题数据
+        private var shortNameArray:NSMutableArray = []
+        private let semaphore = DispatchSemaphore.init(value: 0)
       //尾部加载控件
       var foot:MJRefreshAutoNormalFooter?
       //选择的cat_id
-      private var catID:String = ""
+     private var catID:String = ""
       //当前的controller是否是"全部"
       private var isAllController:Bool = false
     //当前的controller是否是"体育频道"
-     private var isQieController:Bool = false
+      private var isQieController:Bool = false
+    //当前的controller是否是"短标题频道"
+      private var isShortNameController:Bool = false
+    //当前的controller的短标题tag_id 避免上啦刷新 下拉加载出现错误
+      private var shortTag_id:String = ""
+    //当前的controller的上一个短标题tag_id 当当前短标题与上一个短标题不一样时 清空数据源数组
+     private var perShortTag_id:String = "-1"
+    //记住当前点击的是第几个shortName
+    private var currentShortName:NSInteger = 0
       //是否是头部刷新
       private var isHeadRefresh = false
         override func viewDidLoad() {
         super.viewDidLoad()
-
+            
+       self.view.backgroundColor = UIColor.white
         let refreshImages : NSMutableArray = []
         for i in 1..<5 {
             let image:UIImage = UIImage(named: "img_mj_stateRefreshing_0\(i)")!
@@ -56,6 +69,8 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
         self.collect.mj_footer = self.foot
             
         self.view.addSubview(self.collect)
+        self.view.addSubview(self.headView)
+        UIApplication.shared.keyWindow?.addSubview(self.AllTagView)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -78,7 +93,7 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
+
         return CGSize(width:KScreenWith/2,height:150)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -89,35 +104,55 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
 
         return 0
     }
-    
+    //是否需要展示短标题栏
+    fileprivate func showShortName(isShow:Bool) {
+        if  isShow == true {
+            self.headView.isHidden = false
+            self.collect.y = 40.0
+            self.collect.height = KScreenHight - 64-49-40.0
+        }else{
+            self.headView.isHidden = true
+            self.collect.y = 0
+            self.collect.height = KScreenHight - 64-49
+        }
+    }
     //是否需要标签筛选视图
     //MARK:SETTER
     var isFilterView: Bool = false {
         didSet {
-        self.view.addSubview(self.headView)
         self.collect.y = 40.0
         self.collect.height = KScreenHight - 64-49-40.0
         }
     }
     //标签不包括全部
-    var roomMethod: [String:Any] = [:]{
+    var roomMethod: [[String:Any]] = [[:]]{
         didSet {
             if self.dataSouceArray.count != 0 {
                 return
             }
            var cat_id:String = ""
+            //获取请求直播封面数据 参数
+            var RoomMethod:[String:Any] = roomMethod[0]
             
             //遍历数组获取 cat_id
-            for (key,value) in roomMethod {
+            for (key,value) in RoomMethod {
                 if key == "selectIndex" {
                     cat_id = (value) as! String
                     self.catID = cat_id
                 }
             }
-            roomMethod.removeValue(forKey: "selectIndex")
+            RoomMethod.removeValue(forKey: "selectIndex")
             self.loadAnimationStart()
-            //数据请求
-            self.columListModel.getColumnAll(method:GetColumnRoom+"/"+cat_id,parameters:roomMethod)
+            //队列管理
+            let queue1 = DispatchQueue.init(label: "columRoom")
+            queue1.async{
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"shortName",method:GetColumnDetail,parameters:self.roomMethod.last!)
+                self.semaphore.wait()
+                self.columListModel.getColumnAll(Semaphore: self.semaphore,identify: "all",method:GetColumnRoom+"/"+cat_id,parameters:RoomMethod)
+                self.semaphore.wait()
+                //这里已经是请求全部完成了
+
+            }
         }
     }
     //标签“全部”
@@ -129,7 +164,7 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
        self.loadAnimationStart()
         self.isAllController = true
         //数据请求
-        self.columListModel.getColumnAll(method:Live,parameters:roomMethod)
+        self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:Live,parameters:liveMethod)
         }
     }
     //标签“体育频道”
@@ -139,9 +174,9 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
                 return
             }
              self.loadAnimationStart()
-        self.isQieController = true
+             self.isQieController = true
             //数据请求
-       self.columListModel.getColumnAll(method:Qie,parameters:QieMethod)
+       self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:Qie,parameters:QieMethod)
         }
     }
     //赖加载collect
@@ -150,25 +185,45 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
         
         weak var weakself = self
         headView.clickTagButton = {
-            weakself?.AllTagView.isHidden = false
-            UIApplication.shared.keyWindow?.addSubview((weakself?.AllTagView)!)
+        weakself?.AllTagView.isHidden = false
+        weakself?.AllTagView.seleteIndex = (weakself?.currentShortName)!
+        weakself?.AllTagView.dataSouceArray = (weakself?.shortNameArray)!
             weakself?.view.bringSubview(toFront:(weakself?.AllTagView)!)
         }
-        
-        headView.tagTitleArray =  ["全部","妹纸主播","荣耀上单","野区霸主","全部","中路杀神","最强AD","神级辅助","赛事直播"]
+        headView.shortNameClick = { (seleteIndex) in Void()
+            weakself?.currentShortName = seleteIndex
+            weakself?.loading.y = 40.0
+            //"全部"不属于短标题
+            if seleteIndex == 0{
+            weakself?.isShortNameController = false
+            weakself?.refresh()
+            }else{
+               weakself?.isShortNameController = true
+           let shortName = weakself?.shortNameArray[seleteIndex-1] as! YYLLivingColumnDetailModel
+            weakself?.shortTag_id = shortName.tag_id
+            weakself?.loadAnimationStart()
+            weakself?.columListModel.getColumnAll(Semaphore: (weakself?.semaphore)!,identify:"shortNameLiving",method:Live+"/"+shortName.tag_id,parameters:publicParams)
+            }
+        }
         headView.imageTitle = "three_column_view_open"
+        headView.isHidden = true
         return headView
     }()
      lazy var AllTagView: YYLLivingShowAllView = {
         let AllTagView = YYLLivingShowAllView.init(frame: CGRect(x:0 ,y:64,width:KScreenWith,height:KScreenHight-64))
-
+        weak var weakself = self
+        AllTagView.selectBlock = { (selectIndex) in Void()
+            weakself?.headView.perSelete = selectIndex+1000
+            AllTagView.isHidden = true
+           weakself?.currentShortName = selectIndex
+        }
+        AllTagView.isHidden = true
         self.view.addSubview(AllTagView)
         return AllTagView
     }()
     private lazy var collect: YYLCollectionView = {
         
         let collect = YYLCollectionView.init(frame:CGRect(x:0,y:0,width:KScreenWith,height:KScreenHight - 64-49), collectionViewLayout: self.layout111)
-//        collect.bounces = true
         collect.register(YYLHomeCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "livingCell")
         collect.register(UICollectionReusableView.classForCoder(), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "living")
         collect.backgroundColor = UIColor.init(hexString: "f7f7f7")
@@ -179,8 +234,8 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
     lazy var columListModel: YYLLivingViewModel = {
         let columListModel = YYLLivingViewModel()
         weak var myself = self
-        columListModel.columAllSuccess = { (response) in Void()
-             myself?.loadAnimationStop()
+        columListModel.columAllSuccess = { (response,identify) in Void()
+
             myself?.collect.mj_footer.endRefreshing()
             //头部刷新
             if myself?.isHeadRefresh == true{
@@ -189,11 +244,39 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
                 myself?.collect.mj_footer.resetNoMoreData()
                 myself?.isHeadRefresh = !(myself?.isHeadRefresh)!
             }
-            for dic in response{
+
+                if identify == "shortName"{
+                if response.count > 1 {
+                    myself?.showShortName(isShow: true)
+                    }else{
+                    myself?.showShortName(isShow: false)
+                    }
+                //短标题
+                var shortNameArray:Array<String> = ["全部"]
+                for dic in response{
+                let tag = Reflect<YYLLivingColumnDetailModel>.mapObject(json:dic as AnyObject?)
+                shortNameArray.append(tag.tag_name)
+                myself?.shortNameArray.add(tag)
+                    }
+                myself?.headView.tagTitleArray = shortNameArray
+                }else if  identify == "shortNameLiving"{
+                    if myself?.shortTag_id != myself?.perShortTag_id{
+                    myself?.dataSouceArray.removeAllObjects()
+                    myself?.perShortTag_id = (myself?.shortTag_id)!
+                    myself?.collect.contentOffset=CGPoint(x:0,y:0)
+                    }
+                for dic in response{
+                    let tag = Reflect<YYLLivingCoverModel>.mapObject(json:dic as AnyObject?)
+                    myself?.dataSouceArray.add(tag)
+                    }
+            }else{
+              for dic in response{
                 let tag = Reflect<YYLLivingCoverModel>.mapObject(json:dic as AnyObject?)
                 myself?.dataSouceArray.add(tag)
-            }
-            myself?.collect.reloadData()
+                    }
+                }
+           myself?.collect.reloadData()
+            myself?.loadAnimationStop()
             //没有更多数据了
             if (myself?.dataSouceArray.count)!-response.count == 0&&response.count<NSInteger(KlimitData)!{
                 myself?.foot!.setTitle("", for: .noMoreData)
@@ -209,36 +292,88 @@ class YYLPublicViewController: YYLViewController,UICollectionViewDelegate,UIColl
         }
         return columListModel
     }()
+    override func loadReData() {
+        self.loadAnimationStart()
+  
+        if self.isAllController == true {
+            //请求的全部直播
+            self.liveMethod.updateValue("\(self.dataSouceArray.count)", forKey:offsetPage)
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"",method:Live,parameters:self.liveMethod)
+        }else if self.isQieController == true {
+            //请求的体育频道
+            self.QieMethod.updateValue("\(self.dataSouceArray.count)", forKey:offsetPage)
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"",method:Qie,parameters:self.QieMethod)
+        }else{
+            //请求的其他标题的频道
+            self.roomMethod[0].updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
+            let queue1 = DispatchQueue.init(label: "columRoom")
+            queue1.async{
+                self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"shortName",method:GetColumnDetail,parameters:self.roomMethod.last!)
+                self.semaphore.wait()
+                self.columListModel.getColumnAll(Semaphore: self.semaphore,identify: "all",method:GetColumnRoom+"/"+self.catID,parameters:self.roomMethod[0])
+                self.semaphore.wait()
+                //这里已经是请求全部完成了
+        }
+        }
+    }
     func refresh(){
         
         self.isHeadRefresh = !self.isHeadRefresh
         if self.isAllController == true {
-           self.liveMethod.updateValue("0", forKey:offsetPage)
-           self.columListModel.getColumnAll(method:Live,parameters:self.liveMethod)
+            if  self.isShortNameController == false {
+                self.liveMethod.updateValue("0", forKey:offsetPage)
+                self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:Live,parameters:self.liveMethod)
+            }else{
+                self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
+
         }else if self.isQieController == true {
+                        if  self.isShortNameController == false {
             self.QieMethod.updateValue("0", forKey:offsetPage)
-            self.columListModel.getColumnAll(method:Qie,parameters:self.QieMethod)
+            self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"all",method:Qie,parameters:self.QieMethod)
+                        }else{
+        self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
         }else{
-            self.roomMethod.updateValue("0", forKey: offsetPage)
+                if  self.isShortNameController == false {
+            self.roomMethod[0].updateValue("0", forKey: offsetPage)
             //数据请求
-            self.columListModel.getColumnAll(method:GetColumnRoom+"/"+self.catID,parameters:self.roomMethod)
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:GetColumnRoom+"/"+self.catID,parameters:self.roomMethod[0])
+                               }else{
+        self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
         }
      }
     func footRefresh(){
         if self.isAllController == true {
-            self.liveMethod.updateValue("\(self.dataSouceArray.count)", forKey:offsetPage)
-            self.columListModel.getColumnAll(method:Live,parameters:self.liveMethod)
+           if  self.isShortNameController == false {
+               self.liveMethod.updateValue("\(self.dataSouceArray.count)", forKey:offsetPage)
+               self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:Live,parameters:self.liveMethod)
+            }else{
+            publicParams.updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
+            self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
         }else if self.isQieController == true {
+                     if  self.isShortNameController == false {
             self.QieMethod.updateValue("\(self.dataSouceArray.count)", forKey:offsetPage)
-            self.columListModel.getColumnAll(method:Qie,parameters:self.QieMethod)
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:Qie,parameters:self.QieMethod)
+                     }else{
+            publicParams.updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
+            self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
         }else{
-            self.roomMethod.updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
+                if  self.isShortNameController == false {
+            self.roomMethod[0].updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
             //数据请求
-            self.columListModel.getColumnAll(method:GetColumnRoom+"/"+self.catID,parameters:self.roomMethod)
+            self.columListModel.getColumnAll(Semaphore: self.semaphore,identify:"all",method:GetColumnRoom+"/"+self.catID,parameters:self.roomMethod[0])
+                               }else{
+            publicParams.updateValue("\(self.dataSouceArray.count)", forKey: offsetPage)
+            self.columListModel.getColumnAll(Semaphore:self.semaphore,identify:"shortNameLiving",method:Live+"/"+self.shortTag_id,parameters:publicParams)
+            }
         }
     }
     deinit {
-        
+
     }
 
 }

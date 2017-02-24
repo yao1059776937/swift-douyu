@@ -36,7 +36,8 @@ class YYLCustomCycleView: UIView,UICollectionViewDelegate,UICollectionViewDataSo
     // MARK: Timer
     func setupTimer() {
         timer = Timer.scheduledTimer(timeInterval: autoScrollTimeInterval as TimeInterval, target: self, selector: #selector(automaticScroll), userInfo: nil, repeats: true)
-        RunLoop.main.add(timer!, forMode: .commonModes)
+    //    RunLoop.main.add(timer!, forMode: .commonModes)
+        RunLoop.main.add(timer!, forMode: .defaultRunLoopMode)
     }
     
     func invalidateTimer() {

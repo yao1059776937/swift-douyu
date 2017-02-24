@@ -16,8 +16,13 @@ class YYLLivingHeadView: UIView {
     //创建标签button
     private var lineButton=UIButton()
     
+    //点击短标题
+    var shortNameClick:((NSInteger)->())?
+    
+    //点击展开箭头
     var clickTagButton:(()->())?
     
+
     
     override init(frame: CGRect) {
         self.imageTitle = ""
@@ -85,18 +90,18 @@ class YYLLivingHeadView: UIView {
             button.setImage(UIImage(named:imageTitle), for: UIControlState.normal)
         }
     }
-    var tagTitleArray: NSArray {
+    var tagTitleArray: Array<String> {
         didSet {
             if tagTitleArray.count == 0 {
                 return
             }
             for i in 0...tagTitleArray.count-1 {
                 
-                let stringWidth:String = tagTitleArray[i] as! String
+                let stringWidth:String = tagTitleArray[i] 
                 let rect:CGRect = getTextRectSize(text: stringWidth, font:TextEleven, size: CGSize(width:KScreenWith,height:KScreenHight))
                 
                 let button = UIButton.init(type: .custom)
-                button.setTitle(tagTitleArray[i] as? String, for: UIControlState.normal)
+                button.setTitle(tagTitleArray[i], for: UIControlState.normal)
 
                 button.addTarget(self, action: #selector(clickTag(_:)), for:UIControlEvents.touchUpInside)
                 button.layer.cornerRadius = 10
@@ -116,12 +121,18 @@ class YYLLivingHeadView: UIView {
                 button.layer.borderWidth = 1.0
                 self.scroller.addSubview(button)
                 self.lineButton = button
+                self.scroller.contentSize=CGSize(width:10+self.lineButton.rightX,height:30)
             }
-            self.scroller.contentSize=CGSize(width:10+(70+15)*tagTitleArray.count,height:30)
+    
         }
     }
     //MARK:点击标签
     @objc func clickTag(_ button:UIButton){
+        
+        if  self.shortNameClick != nil {
+            self.shortNameClick!(NSInteger(button.tag)-1000)
+        }
+        
         if button.tag-1000 == 0 || self.lineButton.rightX+10 <= (KScreenWith-30){
             UIView.animate(withDuration: 0.5) {
                 self.scroller.contentOffset = CGPoint(x:0,y:0)

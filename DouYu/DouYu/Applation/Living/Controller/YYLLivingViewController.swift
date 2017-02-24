@@ -23,6 +23,7 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.loadAnimationStart()
         let par = [client_sys:iosPlatform]
         self.columListModel.getColumnList(method:GetColumnList,parameters:par)
 
@@ -50,18 +51,13 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
                 }else{
                 let titleTag : YYLLivingTitleTagModel = self.LivingTitleTagArray[seleteIndex-2] as! YYLLivingTitleTagModel
                 let par = ["selectIndex":titleTag.cate_id,limitPage:KlimitData,client_sys:iosPlatform,offsetPage:"0"]
-                controller.roomMethod = par
+                    let par2:[String:Any] = [ShortName:titleTag.short_name,client_sys:iosPlatform]
+                    
+                controller.roomMethod = [par,par2]
                 }
             }
         }
         UIView.animate(withDuration: 0.5) {
-//            if self.isRequest == false {
-//                let controller = self.controllerArray[seleteIndex]
-//                if NSStringFromClass((controller.classForCoder)).isEqual(NSStringFromClass((YYLPublicViewController.classForCoder()))){
-//                    let controller2:YYLPublicViewController = controller as! YYLPublicViewController
-//                    controller2.roomMethod =
-//                }
-//            }
         self.MenuController?.Scroller.contentOffset = CGPoint(x:CGFloat(seleteIndex)*KScreenWith,y:0)
         }
     }
@@ -70,7 +66,7 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
         let controller = self.controllerArray[seleteIndex]
         if NSStringFromClass((controller.classForCoder)).isEqual(NSStringFromClass((YYLPublicViewController.classForCoder()))){
             let controller2:YYLPublicViewController = controller as! YYLPublicViewController
-            if controller2.isFilterView == true && controller2.AllTagView.isHidden==false{
+            if controller2.AllTagView.isHidden==false{
             controller2.AllTagView.isHidden = true
             }
         }
@@ -107,7 +103,7 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
         }else{
             if i == 1{
                 let controller:YYLPublicViewController = YYLPublicViewController()
-                controller.isFilterView = true
+//                controller.isFilterView = true
                 controllerArray.append(controller)
             }else{
                 let controller:YYLPublicViewController = YYLPublicViewController()
@@ -126,6 +122,7 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
         let columListModel = YYLLivingViewModel()
         weak var weakself = self
         columListModel.columSuccess = { (response) in Void()
+            weakself?.loadAnimationStop()
             weakself?.LivingTitleTagArray.removeAllObjects()
             var titles:NSMutableArray = ["常用","全部"]
             for dic in response{
@@ -141,5 +138,9 @@ class YYLLivingViewController: YYLViewController,MenuViewDelegate {
         }
         return columListModel
     }()
-
+    override func loadReData() {
+        self.loadAnimationStart()
+        let par = [client_sys:iosPlatform]
+        self.columListModel.getColumnList(method:GetColumnList,parameters:par)
+    }
 }

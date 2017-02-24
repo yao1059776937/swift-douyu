@@ -26,7 +26,8 @@ let GetColumnDetail = "getColumnDetail"
 let GetColumnRoom = "getColumnRoom"
 let Live = "live"
 let Qie = "qie"
-
+let ShortName = "shortName"
+var publicParams:[String:Any] = [limitPage:KlimitData,client_sys:iosPlatform,offsetPage:"0"]
 //普通参数
 let client_sys = "client_sys"
 let iosPlatform = "ios"
